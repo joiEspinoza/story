@@ -47,7 +47,7 @@ const ModalHeader = ({
   title,
   titles,
   optionsStepper,
-  toggleModalHeader = () => {},
+  toggleModalHeader,
 }: ModalHeaderProps) => (
   <div className="header">
     {title && <div className="title">{title}</div>}
@@ -73,7 +73,7 @@ const ModalHeader = ({
         icon="XIcon"
         visualType="default"
         color="secondary"
-        onClick={() => toggleModalHeader}
+        onClick={toggleModalHeader}
       />
     </div>
   </div>
@@ -96,7 +96,7 @@ export function Modal({
             : 'modal-container__centered',
         ].join(' ')}
       >
-        {header && <ModalHeader {...header} toggleModalHeader={toggleModal} />}
+        {header && <ModalHeader {...header} />}
         <div className="modal-body">{body}</div>
       </div>
 
