@@ -1,0 +1,15 @@
+.breadcrumb-container {
+  @apply flex items-center;
+
+  .breadcrumb-element {
+    @apply inline-flex items-center;
+  }
+
+  .breadcrumb-element-active {
+    @apply text-gray-900;
+  }
+
+  .breadcrumb-element-inactive {
+    @apply text-gray-400;
+  }
+}

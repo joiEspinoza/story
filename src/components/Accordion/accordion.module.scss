@@ -1,0 +1,11 @@
+.accordion-container {
+  @apply bg-gray-50 rounded-b-lg;
+
+  .accordion-header {
+    @apply flex justify-between px-12 py-4 bg-white text-lg font-semibold rounded-t-lg;
+  }
+
+  .accordion-body {
+    @apply px-12 py-10;
+  }
+}

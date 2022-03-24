@@ -1,0 +1,11 @@
+.header-container {
+  @apply bg-white flex flex-row justify-between px-4;
+
+  .header-title {
+    @apply flex flex-row items-center justify-center space-x-4;
+  }
+
+  .header-user {
+    @apply flex flex-row items-center justify-center space-x-6;
+  }
+}

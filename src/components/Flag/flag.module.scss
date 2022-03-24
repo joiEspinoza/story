@@ -1,0 +1,7 @@
+.flag-container {
+  @apply w-7 h-5 bg-gray-200;
+}
+
+  .flag-container .flag-img {
+    @apply w-full h-full object-cover;
+  }

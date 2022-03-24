@@ -1,0 +1,15 @@
+.navbar-container {
+  @apply flex justify-between items-center;
+
+  .navbar-brand {
+    @apply flex flex-row space-x-2;
+  }
+
+  .navbar-items {
+    @apply flex flex-row space-x-6;
+
+    .finder {
+      @apply mb-3;
+    }
+  }
+}

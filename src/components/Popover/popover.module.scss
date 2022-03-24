@@ -1,0 +1,15 @@
+.popover__content {
+  @apply bg-white border shadow-md rounded-md p-4 flex flex-col gap-4
+}
+
+  .popover__button {
+    @apply inline-flex cursor-pointer items-center justify-between px-4 py-2.5 rounded-md border border-solid text-white border-primary-600 bg-primary-600;
+  }
+
+  .popover__content__hidden {
+    @apply hidden
+  }
+
+.popover__buttons {
+  @apply flex justify-between gap-4
+}

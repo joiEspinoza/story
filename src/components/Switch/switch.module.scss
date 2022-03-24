@@ -1,0 +1,41 @@
+.form-switch {
+  @apply inline-block cursor-pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.form-switch i {
+  @apply bg-gray-400 relative inline-block mr-2 rounded-full align-text-bottom;
+  width: 46px;
+  height: 26px;
+  transition: all 0.3s linear;
+}
+
+.form-switch i::before {
+  @apply bg-white absolute left-0 rounded-full;
+  content: "";
+  width: 42px;
+  height: 22px;
+  transform: translate3d(2px, 2px, 0) scale3d(1, 1, 1);
+  transition: all 0.25s linear;
+}
+.form-switch i::after {
+  @apply bg-white absolute left-0 rounded-full;
+  content: "";
+  width: 22px;
+  height: 22px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
+  transform: translate3d(2px, 2px, 0);
+  transition: all 0.2s ease-in-out;
+}
+.form-switch:active i::after {
+  width: 28px;
+  transform: translate3d(2px, 2px, 0);
+}
+.form-switch:active input:checked + i::after { transform: translate3d(16px, 2px, 0); }
+.form-switch input { display: none; }
+
+.form-switch input:checked + i {
+  @apply bg-primary-600;
+}
+
+.form-switch input:checked + i::before { transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0); }
+.form-switch input:checked + i::after { transform: translate3d(22px, 2px, 0); }

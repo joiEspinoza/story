@@ -1,0 +1,15 @@
+.textarea-container {
+  @apply grid grid-cols-1;
+
+  .textarea-label {
+    @apply absolute px-1 ml-2 text-sm text-gray-500 bg-white;
+  }
+
+  .textarea-control-active {
+    @apply mt-3 px-4 py-3.5 rounded-md border-2 border-gray-500 text-gray-500;
+  }
+
+  .textarea-control-inactive {
+    @apply mt-3 px-4 py-3.5 rounded-md text-gray-500;
+  }
+}

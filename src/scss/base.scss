@@ -1,0 +1,34 @@
+@import '../components/Accordion/accordion.module.scss';
+@import '../components/Breadcrumb/breadcrumb.module.scss';
+@import '../components/Button/button.module.scss';
+@import '../components/DataTable/dataTable.module.scss';
+@import '../components/FileUploader/fileuploader.module.scss';
+@import '../components/Finder/finder.module.scss';
+@import '../components/Header/header.module.scss';
+@import '../components/HeaderUser/headerUser.module.scss';
+@import '../components/Icon/icon.module.scss';
+@import '../components/Input/input.module.scss';
+@import '../components/Badge/badge.module.scss';
+@import '../components/ListItem/listItem.module.scss';
+@import '../components/Modal/modal.module.scss';
+@import '../components/ModalHeader/modalHeader.module.scss';
+@import '../components/Radio/radio.module.scss';
+@import '../components/Select/select.module.scss';
+@import '../components/Stepper/stepper.module.scss';
+@import '../components/Toast/toast.module.scss';
+@import '../components/Notification/notificacion.module.scss';
+@import '../components/Avatar/avatar.module.scss';
+@import '../components/Image/image.module.scss';
+@import '../components/Flag/flag.module.scss';
+@import '../components/Sidebar/sidebar.module.scss';
+@import '../components/ButtonCard/buttonCard.module.scss';
+@import '../components/Navbar/Navbar.module.scss';
+@import '../components/Textarea/Textarea.module.scss';
+@import '../components/Switch/Switch.module.scss';
+@import '../components/Popover/Popover.module.scss';
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

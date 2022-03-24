@@ -1,0 +1,31 @@
+.fileuploader-container {
+  @apply bg-white border border-slate-200 py-6 relative rounded-md px-36;
+
+  .fileuploader-icon {
+    @apply flex justify-center text-emphasis;
+  }
+
+  .fileuploader-title {
+    @apply flex justify-center font-semibold text-sm;
+  }
+
+  .fileuploader-subtitle {
+    @apply flex justify-center font-light text-xs text-gray-600;
+  }
+
+  .fileuploader-button {
+    @apply flex justify-center;
+  }
+
+  input {
+    @apply absolute h-full left-0 opacity-0 top-0 w-full;
+  }
+
+  .fileuploader-separator {
+    @apply flex justify-center items-center gap-2 my-2;
+  }
+
+  .fileuploader__separator-line {
+    @apply border-t w-full h-1 border-y-gray-600 my-3
+  }
+}

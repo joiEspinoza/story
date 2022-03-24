@@ -1,0 +1,19 @@
+.badge-container {
+  @apply w-auto text-xs rounded-md px-2.5 py-0.5;
+}
+
+.badge-primary {
+  @apply bg-primary-100 text-primary-800
+}
+
+.badge-success {
+  @apply bg-success-100 text-success-800
+}
+
+.badge-warning {
+  @apply bg-warning-100 text-warning-800
+}
+
+.badge-danger {
+  @apply bg-danger-100 text-danger-800
+}

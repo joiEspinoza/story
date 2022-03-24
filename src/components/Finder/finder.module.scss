@@ -1,0 +1,11 @@
+.finder-container {
+  @apply bg-slate-100 font-semibold flex flex-row items-center justify-start h-12 p-4 space-x-2.5 text-base rounded-md;
+
+  svg {
+    @apply text-blue-600;
+  }
+
+  input {
+    @apply w-full bg-inherit outline-0;
+  }
+}

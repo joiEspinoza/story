@@ -1,0 +1,51 @@
+.datatable-container {
+  @apply w-full;
+
+  .datatable-header {
+    @apply flex flex-row bg-slate-100 justify-between;
+
+    &-column {
+      @apply font-bold px-4 py-3 text-sm w-full;
+    }
+  }
+
+  .datatable-data {
+    @apply flex flex-row justify-between;
+
+    &:nth-child(even) {
+      @apply bg-slate-100;
+    }
+
+    &-column {
+      @apply font-normal px-4 py-3 text-sm w-full;
+    }
+  }
+
+  .datatable-check {
+    @apply flex justify-center items-center px-4;
+  }
+}
+
+.paginator-container {
+  @apply flex flex-row justify-end items-center font-semibold text-xs px-10 py-7 space-x-2;
+
+  .paginator-select-page {
+    @apply px-3 py-1 outline-0;
+  }
+
+  .paginator-button-direction {
+    @apply text-primary-600;
+  }
+  
+  .paginator-button {
+    @apply px-2.5 py-1 rounded-md;
+
+    &-active {
+      @apply bg-primary-600 text-white;
+    }
+
+    &-default {
+      @apply border border-gray-300;
+    }
+  }
+}

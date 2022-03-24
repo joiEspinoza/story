@@ -1,0 +1,43 @@
+.sidebar-container {
+  @apply flex flex-col max-w-xs bg-white pt-6 px-6 h-screen justify-between
+}
+
+  .sidebar-container hr {
+    @apply my-5 bg-gray-400 border
+  }
+
+  .sidebar-container .sidebar-footer {
+    @apply mb-6 text-center text-gray-600
+  }
+
+  .sidebar-menu-container {
+    @apply w-full
+  }
+  
+    .sidebar-menu-separator {
+      @apply border-t w-full h-1 border-y-gray-400 my-3
+    }
+  
+    .sidebar-menu-element {
+      @apply grid-cols-2 justify-items-stretch items-center my-6 first:mt-0 last:mb-0
+    }
+  
+      .sidebar-menu-element .active {
+        @apply font-bold text-primary-600
+      }
+  
+      .sidebar-menu-left {
+        @apply inline-flex items-center
+      }
+  
+        .sidebar-menu-left span {
+          @apply ml-2
+        }
+  
+        .sidebar-menu-right {
+          @apply float-right
+        }
+  
+      .sidebar-menu-subitem {
+        @apply pl-7 mt-6
+      }

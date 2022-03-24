@@ -1,0 +1,15 @@
+.notification-container {
+  @apply w-8 h-8 flex justify-center items-center relative;
+
+  .circle {
+    @apply absolute top-0 right-0 w-4 h-4 rounded-full bg-emphasis border-2 border-white;
+  }
+}
+
+.with-notification {
+  @apply text-gray-900;
+}
+
+.without-notification {
+  @apply text-gray-400;
+}

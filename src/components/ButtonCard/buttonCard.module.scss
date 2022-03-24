@@ -1,0 +1,16 @@
+.buttonCard-container {
+  @apply bg-white rounded-md border border-gray-200 py-9 px-9 grid grid-cols-1 gap-2 place-items-center;
+  @apply hover:cursor-pointer
+}
+
+  .buttonCard-container .buttonCard-icon {
+    @apply text-emphasis
+  }
+
+  .buttonCard-container .buttonCard-title {
+    @apply text-primary-900 font-bold
+  }
+
+  .buttonCard-container .buttonCard-subtitle {
+    @apply font-light text-sm inline-block align-text-bottom
+  }

@@ -1,0 +1,19 @@
+.icon {
+  @apply rounded-none;
+}
+
+.icon-sm {
+  @apply h-2 w-2;
+}
+
+.icon-base {
+  @apply h-4 w-4;
+}
+
+.icon-lg {
+  @apply h-6 w-6;
+}
+
+.icon-xl {
+  @apply h-11 w-11;
+}

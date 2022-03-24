@@ -1,0 +1,35 @@
+.stepper-container {
+  @apply flex items-center;
+
+  .stepper-element {
+    @apply relative flex items-center w-full;
+
+    .stepper-element-position {
+      @apply items-center;
+
+      .stepper-element-id-container-active {
+        @apply rounded-full w-7 h-7 items-center text-center bg-black border border-black;
+      }
+
+      .stepper-element-id-container-inactive {
+        @apply rounded-full w-7 h-7 items-center text-center bg-transparent border border-gray-400;
+      }
+
+      .stepper-element-id-container-text-active {
+        @apply text-base text-white;
+      }
+
+      .stepper-element-id-container-text-inactive {
+        @apply text-base text-gray-400;
+      }
+
+      .stepper-element-label-container {
+        @apply absolute top-0 w-32 text-xs font-medium text-gray-500 mt-9;
+      }
+    }
+  }
+
+  .stepper-line-element {
+    @apply flex-auto border-t border-gray-400;
+  }
+}

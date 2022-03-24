@@ -1,0 +1,111 @@
+.button {
+  @apply inline-flex items-center justify-between gap-x-1 px-4 py-2.5;
+}
+
+  .button.button__default {
+    @apply rounded-md border border-solid text-white;
+  }
+
+    .button.button__default.button__primary {
+      @apply border-primary-600 bg-primary-600 text-white;
+    }
+
+      .button.button__default.button__primary:hover {
+        @apply border-primary-700 bg-primary-700 text-white;
+      }
+      
+      .button.button__default.button__secondary {
+        @apply border-primary-50 bg-primary-50 text-primary-700;
+      }
+  
+        .button.button__default.button__secondary:hover {
+          @apply border-primary-200 bg-primary-200 text-primary-700;
+        }      
+
+    .button.button__default.button__success {
+      @apply border-success-600 bg-success-600 text-white;
+    }
+
+      .button.button__default.button__success:hover {
+        @apply border-success-700 bg-success-700 text-white;
+      }
+
+    .button.button__default.button__warning {
+      @apply border-warning-600 bg-warning-600 text-white;
+    }
+
+      .button.button__default.button__warning:hover {
+        @apply border-warning-700 bg-warning-700 text-white;
+      }
+
+    .button.button__default.button__danger {
+      @apply border-danger-600 bg-danger-600 text-white;
+    }
+
+      .button.button__default.button__danger:hover {
+        @apply border-danger-700 bg-danger-700 text-white;
+      }
+
+  .button.button__outline {
+    @apply rounded-md border border-solid bg-transparent ;
+  }
+
+    .button.button__outline:hover {
+      @apply rounded-md border border-solid bg-gray-50;
+    }
+
+    .button.button__outline.button__primary {
+      @apply border-primary-600 text-primary-600;
+    }
+
+    .button.button__outline.button__success {
+      @apply border-success-600 text-success-600;
+    }
+
+    .button.button__outline.button__warning {
+      @apply border-warning-600 text-warning-600;
+    }
+
+    .button.button__outline.button__danger {
+      @apply border-danger-600 text-danger-600;
+    }
+
+  .button.button__link {
+    @apply bg-transparent px-0;
+  }
+
+    .button.button__link.button__primary {
+      @apply border-primary-600 text-primary-600;
+    }
+
+      .button.button__link.button__primary:hover {
+        @apply border-primary-700 text-primary-700;
+      }
+
+    .button.button__link.button__success {
+      @apply text-success-600;
+    }
+
+      .button.button__link.button__success:hover {
+        @apply text-success-700;
+      }
+
+    .button.button__link.button__warning {
+      @apply text-warning-600;
+    }
+
+      .button.button__link.button__warning:hover {
+        @apply text-warning-700;
+      }
+
+    .button.button__link.button__danger {
+      @apply text-danger-600;
+    }
+    
+      .button.button__link.button__danger:hover {
+        @apply text-danger-700;
+      }
+
+  .button.button__icon-only {
+    @apply px-3;
+  }

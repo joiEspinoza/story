@@ -1,0 +1,15 @@
+.listitem-container {
+  @apply bg-white border border-slate-400 flex flex-row items-center justify-between h-20 px-6 rounded-lg;
+
+  .listitem-block {
+    @apply w-40;
+
+    &-header {
+      @apply font-semibold text-xs truncate;
+    }
+
+    &-description {
+      @apply font-normal text-sm truncate;
+    }
+  }
+}
