@@ -583,22 +583,6 @@
         --tw-bg-opacity: 1;
         background-color: rgb(30 58 138 / var(--tw-bg-opacity));
         opacity: 0.7;
-}.modalheader-container{
-        display: flex;
-        height: 5rem;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-}.modalheader-container .modalheader-title > :not([hidden]) ~ :not([hidden]){
-        --tw-space-x-reverse: 0;
-        margin-right: calc(2.5rem * var(--tw-space-x-reverse));
-        margin-left: calc(2.5rem * calc(1 - var(--tw-space-x-reverse)));
-}.modalheader-container .modalheader-stepper{
-        width: 20rem;
-}.modalheader-container .modalheader-buttons > :not([hidden]) ~ :not([hidden]){
-        --tw-space-x-reverse: 0;
-        margin-right: calc(1.5rem * var(--tw-space-x-reverse));
-        margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
 }.radio-container{
         display: grid;
         grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -1343,6 +1327,10 @@ Ensure the default browser behavior of the `hidden` attribute.
         --tw-backdrop-sepia:  ;
 }.visible{
         visibility: visible;
+}.fixed{
+        position: fixed;
+}.absolute{
+        position: absolute;
 }.hidden{
         display: none;
 }.h-4{

@@ -9,7 +9,7 @@ interface multiTitle {
   text: string
   active?: boolean
 }
-interface ModalHeaderProps {
+export interface ModalHeaderProps {
   title?: string
   titles?: Array<multiTitle>
   buttons?: Array<ButtonProps>
@@ -30,6 +30,11 @@ export interface ModalProps {
    * Indica si el modal es fullscreen
    */
   fullscreen?: boolean
+
+  /**
+   * posicion modal
+   */
+  position?: 'fixed' | 'absolute'
 }
 
 const ModalHeader = ({
@@ -69,7 +74,12 @@ const ModalHeader = ({
   </div>
 )
 
-export function Modal({ body, header, fullscreen = true }: ModalProps) {
+export function Modal({
+  body,
+  header,
+  fullscreen = true,
+  position,
+}: ModalProps) {
   const [isOpen, setIsOpen] = useState<boolean>(true)
 
   const toggleModal = () => {
@@ -92,7 +102,15 @@ export function Modal({ body, header, fullscreen = true }: ModalProps) {
         <div className="modal-body">{body}</div>
       </div>
 
-      {!fullscreen && <div className="modal-overlay" />}
+      {!fullscreen && (
+        <div
+          className={`modal-overlay ${position}`}
+          onClick={toggleModal}
+          onKeyDown={() => {}}
+          role="button"
+          aria-hidden="true"
+        />
+      )}
     </>
   ) : null
 }
