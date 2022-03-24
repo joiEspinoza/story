@@ -96,7 +96,7 @@ export function Modal({
             : 'modal-container__centered',
         ].join(' ')}
       >
-        {header && <ModalHeader {...header} />}
+        {header && <ModalHeader {...header} toggleModalHeader={toggleModal} />}
         <div className="modal-body">{body}</div>
       </div>
 
