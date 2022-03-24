@@ -1,5 +1,5 @@
 /* eslint-disable react/require-default-props */
-import React, { useState } from 'react'
+import React from 'react'
 
 import '../../styles/base.css'
 import { Button, ButtonProps } from '../Button/Button'
@@ -14,7 +14,7 @@ export interface ModalHeaderProps {
   titles?: Array<multiTitle>
   buttons?: Array<ButtonProps>
   optionsStepper?: StepperProps['elements']
-  toggleModal?: () => void
+  toggleModalHeader?: () => void
 }
 
 export interface ModalProps {
@@ -35,6 +35,11 @@ export interface ModalProps {
    * posicion modal
    */
   position?: 'fixed' | 'absolute'
+
+  /**
+   * Funcion despliegue Modal
+   */
+  toggleModal?: () => void
 }
 
 const ModalHeader = ({
@@ -42,7 +47,7 @@ const ModalHeader = ({
   title,
   titles,
   optionsStepper,
-  toggleModal = () => {},
+  toggleModalHeader = () => {},
 }: ModalHeaderProps) => (
   <div className="header">
     {title && <div className="title">{title}</div>}
@@ -68,7 +73,7 @@ const ModalHeader = ({
         icon="XIcon"
         visualType="default"
         color="secondary"
-        onClick={() => toggleModal()}
+        onClick={() => toggleModalHeader}
       />
     </div>
   </div>
@@ -79,14 +84,9 @@ export function Modal({
   header,
   fullscreen = true,
   position,
+  toggleModal,
 }: ModalProps) {
-  const [isOpen, setIsOpen] = useState<boolean>(true)
-
-  const toggleModal = () => {
-    setIsOpen(!isOpen)
-  }
-
-  return isOpen ? (
+  return (
     <>
       <div
         className={[
@@ -96,9 +96,7 @@ export function Modal({
             : 'modal-container__centered',
         ].join(' ')}
       >
-        {header && (
-          <ModalHeader {...header} toggleModal={() => toggleModal()} />
-        )}
+        {header && <ModalHeader {...header} />}
         <div className="modal-body">{body}</div>
       </div>
 
@@ -112,5 +110,5 @@ export function Modal({
         />
       )}
     </>
-  ) : null
+  )
 }
