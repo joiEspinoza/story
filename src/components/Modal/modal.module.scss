@@ -3,7 +3,7 @@
 }
 
 .modal-container__fullscreen {
-  @apply h-screen w-screen;
+  @apply min-h-screen w-screen;
 
   .header {
     @apply flex flex-row items-center justify-between border-b border-slate-400 pl-12 pr-4 py-4;

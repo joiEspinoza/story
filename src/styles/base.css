@@ -504,7 +504,7 @@
         --tw-bg-opacity: 1;
         background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }.modal-container__fullscreen{
-        height: 100vh;
+        min-height: 100vh;
         width: 100vw;
 }.modal-container__fullscreen .header{
         display: flex;
