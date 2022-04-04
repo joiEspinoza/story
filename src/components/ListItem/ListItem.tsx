@@ -26,8 +26,8 @@ export function ListItem({
   listBlocks,
   onClick,
   visibleButton = true,
-  optionButton,
-  containerCustomeClass,
+  optionButton = <></>,
+  containerCustomeClass = "",
 }:ListItemProps) {
   return (
     <div className={`listitem-container ${containerCustomeClass}`}>
