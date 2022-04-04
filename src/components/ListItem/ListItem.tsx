@@ -16,15 +16,21 @@ export interface ListItemProps {
    Visibilidad botón   
    */
   visibleButton: boolean
+
+  optionButton: JSX.Element | JSX.Element[]
+
+  containerCustomeClass : string
 }
 
 export function ListItem({
   listBlocks,
   onClick,
-  visibleButton = true
+  visibleButton = true,
+  optionButton,
+  containerCustomeClass,
 }:ListItemProps) {
   return (
-    <div className='listitem-container'>
+    <div className={`listitem-container ${containerCustomeClass}`}>
       {listBlocks.map((bl:ListBlockProps, i:number) => (
         <div className='listitem-block' key={i.toString()}>
           <div className='listitem-block-header'>{bl.header}</div>
@@ -32,7 +38,7 @@ export function ListItem({
         </div>
       ))}
       <div className={(visibleButton ? 'cursor-pointer' : 'hidden')} onClick={onClick} aria-hidden="true">
-        <Icon icon='XIcon' size='lg' />
+        {optionButton}
       </div>
     </div>
   )

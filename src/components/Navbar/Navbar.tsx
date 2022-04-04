@@ -1,84 +1,83 @@
 import React from 'react'
 
-// import '../../scss/base.scss'
+import { Title } from '../Title/Title'
+import { Button, ButtonProps } from '../Button/Button'
+import { Finder } from '../Finder/Finder'
+import { Select, SelectProps } from '../Select/Select'
+
 import '../../styles/base.css'
 
-import { Title } from '../Title/Title'
-import { Select } from '../Select/Select'
-import { Button, ButtonProps } from '../Button/Button'
-// import { Props as IconProps } from '../Icon/Icon'
-import { Finder } from '../Finder/Finder'
-
-interface NavbarItem {
-  key: number,
-  icon?: ButtonProps['icon'],
-  onClick?: ButtonProps['onClick'],
-  type: 'button' | 'finder',
-}
-
-interface BrandSelectorItem {
-  key: number,
-  labelOption: string
+interface NavbarButtonProps {
+  key: number
+  icon: ButtonProps['icon']
+  onClick?: ButtonProps['onClick']
 }
 
 export interface NavbarProps {
   /*
-  Title 
+  Titulo del navbar
   */
-  title: string
+  title?: string
   /*
-  Brand selector
+  Opciones que contendra el selector de marcas
   */
-  brandSelector?: 'jumbo' | 'sisa' | 'undefined'
+  brandItems?: SelectProps['opciones']
   /*
-   * Brand options 
+  Botones que contendra el navbar
+  */
+  navbarButtons?: NavbarButtonProps[]
+  /**
+   * Indica si se desplegará el cuadro de busqueda
    */
-  brandItems?: BrandSelectorItem[]
-  /*
-  Navbar Items
-  */
-  navbarItems?: NavbarItem[]
+  finder?: boolean
 }
-const showButton = ({ icon, onClick}: ButtonProps) => (<Button  visualType='link' icon={icon} onClick={onClick} />
-)
 
-const showFinder = () => (<div className="finder">
-  <Finder placeholder='Search' />
-</div>)
-
-const showBrandSelector = ({ brandSelector, brandItems }: {brandSelector: string, brandItems:BrandSelectorItem[]}) => (brandSelector !== 'undefined'
-  && brandItems?.length > 0
-  && <Select visualType='jumbo' placeholder={brandSelector} opciones={brandItems} />)
-        
-
-const NavbarItems = (items: NavbarItem[] = []) => (
-  <div className="navbar-items">
-    {items?.length > 0 && [...items].map(({icon, type, onClick}) => (type === 'button'
-      ? icon && showButton({ icon, onClick })
-      : showFinder()
-      )    
-    )}
+const renderFinder = () => (
+  <div className="finder">
+    <Finder placeholder="Search" />
   </div>
 )
 
-export const Navbar = ({
-  title = 'Title',
-  brandSelector,
-  brandItems = [],
-  navbarItems = []
-}: NavbarProps) => {
-  const navbarItemsRender = navbarItems && NavbarItems(navbarItems)
+const renderNavbarButtons = (buttons: NavbarProps['navbarButtons'] = []) =>
+  buttons.length &&
+  buttons.map(({ key, icon, onClick }) => (
+    <Button key={key} visualType="link" icon={icon} onClick={onClick} />
+  ))
+
+const renderBrandSelector = (brands: NavbarProps['brandItems'] = []) => {
+  const activeBrand = brands?.find(({ active }) => active)
+
   return (
-    <div className="navbar-container">
-      <div className="navbar-brand">
-        <Title text={title} size='2xl' />
-        {
-          brandSelector && showBrandSelector({ brandSelector, brandItems})
-        }
-      </div>
-      {
-        navbarItemsRender 
-      }
-    </div>
+    <Select
+      visualType="jumbo"
+      placeholder={activeBrand ? activeBrand.labelOption : ''}
+      opciones={brands.filter(brand => !brand.active)}
+    />
   )
 }
+
+export const Navbar = ({
+  title = '',
+  brandItems,
+  navbarButtons,
+  finder = true,
+}: NavbarProps) => (
+  <div className="navbar-container">
+    <div className="navbar-left">
+      { title && <Title text={title} size="2xl" /> }
+
+      { brandItems && (
+        brandItems.length === 1 ? (
+          <Title text={brandItems[0].labelOption} size="base" />
+        ) : (
+          renderBrandSelector(brandItems)
+        )
+      )}      
+    </div>
+
+    <div className="navbar-right">
+      {navbarButtons && renderNavbarButtons(navbarButtons)}
+      {finder && renderFinder()}
+    </div>
+  </div>
+)

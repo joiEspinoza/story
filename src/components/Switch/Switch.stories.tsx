@@ -6,6 +6,7 @@ import { Switch, Props } from './Switch'
 export default {
   title: 'V1/Switch',
   component: Switch,
+  parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: {
     label: { control: 'text' },
   }

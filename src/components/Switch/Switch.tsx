@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import '../../styles/base.css'
-
 
 export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   /**
@@ -9,21 +8,34 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
    */
   label?: string
   /**
-   * Estado inicial del switch
+   * Estado inicial del switch (Por defecto false)
    */
-  checked: boolean
+  checked?: boolean
+  /**
+   * Evento OnChange
+   */
+  onChange?: () => void;
 }
 
-export function Switch({
-  label = '',
-  checked,
-}: Props) {
+export function Switch({ label = '', checked = false, ...props }: Props) {
+  const [isChecked, setIsChecked] = useState(checked)
+
+  const handleOnChange = () => {
+    setIsChecked(!isChecked)
+    if (props.onChange) {
+      props.onChange()
+    }
+  }
 
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className="form-switch">
-      <input type="checkbox" checked={ checked } />
-      <i/>
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={handleOnChange}
+      />
+      <i />
       {label}
     </label>
   )

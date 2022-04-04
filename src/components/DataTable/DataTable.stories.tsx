@@ -64,5 +64,6 @@ Default.args = {
   labelFromTo: 'de',
   labelItemPerPage: 'Item por página',
   numPerPage: [10, 25, 50],
+  onCheckStatus: ((e:any) => console.log(e)),
   totalCount: 50
 }

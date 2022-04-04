@@ -6,6 +6,7 @@ import '../../styles/base.css'
 interface SelectOptions extends OptionHTMLAttributes<HTMLOptionElement> {
   key: number
   labelOption: string
+  active?: boolean
 }
 
 export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
