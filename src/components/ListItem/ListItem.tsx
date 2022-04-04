@@ -1,5 +1,4 @@
 import React from 'react'
-import { Icon } from '../Icon/Icon'
 
 interface ListBlockProps {
   header: string
@@ -16,9 +15,13 @@ export interface ListItemProps {
    Visibilidad botón   
    */
   visibleButton: boolean
-
+  /**
+   botón custome
+  */
   optionButton: JSX.Element | JSX.Element[]
-
+  /**
+   clase custome para contenedor
+  */
   containerCustomeClass : string
 }
 
@@ -26,8 +29,8 @@ export function ListItem({
   listBlocks,
   onClick,
   visibleButton = true,
-  optionButton = <></>,
-  containerCustomeClass = "",
+  optionButton,
+  containerCustomeClass,
 }:ListItemProps) {
   return (
     <div className={`listitem-container ${containerCustomeClass}`}>
@@ -38,7 +41,7 @@ export function ListItem({
         </div>
       ))}
       <div className={(visibleButton ? 'cursor-pointer' : 'hidden')} onClick={onClick} aria-hidden="true">
-        {optionButton}
+        <div>{optionButton}</div>
       </div>
     </div>
   )
