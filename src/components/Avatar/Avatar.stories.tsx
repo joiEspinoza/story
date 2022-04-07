@@ -2,7 +2,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Avatar, avatarProps } from './Avatar';
+import { Avatar, AvatarProps } from './Avatar';
 
 export default {
   title: 'Avatar',
@@ -13,7 +13,7 @@ export default {
   },
 } as ComponentMeta<typeof Avatar>;
 
-const Template: ComponentStory<typeof Avatar> = (args: avatarProps) => <Avatar {...args} />;
+const Template: ComponentStory<typeof Avatar> = (args: AvatarProps) => <Avatar {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = { picture: 'https://picsum.photos/200', user: 'Juan Perez' };

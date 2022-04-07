@@ -40,8 +40,6 @@ export interface ModalProps {
    * Funcion despliegue Modal
    */
   toggleModal?: () => void
-
-  customCenteredContainerClass : string
 }
 
 const ModalHeader = ({
@@ -87,7 +85,6 @@ export function Modal({
   fullscreen = true,
   position,
   toggleModal,
-  customCenteredContainerClass
 }: ModalProps) {
   return (
     <>
@@ -96,11 +93,10 @@ export function Modal({
           'modal-container',
           fullscreen
             ? 'modal-container__fullscreen'
-            : 'modal-container__centered',customCenteredContainerClass
+            : 'modal-container__centered',
         ].join(' ')}
       >
         {header && <ModalHeader {...header} />}
-        {!fullscreen && <hr/>}
         <div className="modal-body">{body}</div>
       </div>
 
