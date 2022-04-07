@@ -5,18 +5,19 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Logo, LogoProps } from './Logo'
 
 export default {
-  title: 'Logo',
+  title: 'V1/Logo',
   component: Logo,
   argTypes: {
-    textColor: { control: { type: 'color' } },
+    smileColor: { control: { type: 'color' } },
     circleColor: { control: { type: 'color' } },
+    eyeColor: { control: { type: 'color' } },
   }
 } as ComponentMeta<typeof Logo>
 
 const Template: ComponentStory<typeof Logo> = (args: LogoProps) => <Logo {...args} />
 
-export const Gray = Template.bind({})
-Gray.args = { textColor: '#111928', circleColor: '#9CA3AF' };
+export const Primary = Template.bind({})
+Primary.args = { };
 
-export const CustomColor = Template.bind({})
-CustomColor.args = { textColor: '#ff0000', circleColor: '#00ff00' };
+export const Gray = Template.bind({})
+Gray.args = { smileColor: '#111928', circleColor: '#9CA3AF', eyeColor: '#111928' };

@@ -25,7 +25,12 @@ Primary.args = {
     color: 'success',
   },
   menuElements: [
-    { id: 1, label: 'Home', key: 'home', icon: 'HomeIcon' },
+    {
+      id: 1,
+      label: 'Home',
+      key: 'home',
+      icon: 'HomeIcon',
+    },
     { id: 2, label: 'Precios', key: 'precios', icon: 'CashIcon' },
     {
       id: 3,
@@ -39,6 +44,7 @@ Primary.args = {
       key: 'promociones',
       icon: 'SpeakerphoneIcon',
       active: true,
+      route: 'home'
     },
     { id: 5, label: 'Campañas', key: 'campanas' },
     { id: 6, label: '---', key: 'separator' },

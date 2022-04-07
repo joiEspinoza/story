@@ -4,7 +4,7 @@ import React from 'react'
 import '../../styles/base.css'
 import { Image } from '../Image/Image'
 
-export interface avatarProps {
+export interface AvatarProps {
   /**
   * Imagen a desplegar
   */
@@ -18,7 +18,7 @@ export interface avatarProps {
 export function Avatar({
   picture,
   user = 'Profile picture'
-}: avatarProps) {
+}: AvatarProps) {
   return (
     <div className={['avatar-container'].join(' ')}>
       { picture && <Image src={`${picture}`} alt={user}/> }

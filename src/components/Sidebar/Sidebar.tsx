@@ -11,6 +11,7 @@ type SidebarMenuElement = {
   icon?: IconProps['icon']
   active?: boolean
   items?: SidebarMenuElement[]
+  route?: string
 }
 
 type SidebarMenuProps = {
@@ -31,7 +32,7 @@ const SidebarMenu = ({ elements }: SidebarMenuProps) => {
       )
     }
 
-    const { id, label, icon, active, items } = element
+    const { id, label, icon, active, route, items } = element
 
     const isActive =
       active === true ||
@@ -40,7 +41,7 @@ const SidebarMenu = ({ elements }: SidebarMenuProps) => {
     const hasItems = element.items !== undefined
 
     return (
-      <li key={id} className={['sidebar-menu-element'].join(' ')}>
+      <li key={id} className={['sidebar-menu-element'].join(' ')} { ...route && ('algo') }>
         <div className={['sidebar-menu-left', isActive && 'active '].join(' ')}>
           {hasIcon ? <Icon icon={icon} /> : <Icon icon="CheckCircleIcon" />}
           <span>{label}</span>

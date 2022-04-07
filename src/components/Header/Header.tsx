@@ -1,28 +1,27 @@
 import React from 'react'
 
-import '../../styles/base.css'
-import { Avatar } from '../Avatar/Avatar'
 import { HeaderUser } from '../HeaderUser/HeaderUser'
+import { Logo } from '../Logo/Logo'
 import { Notification } from '../Notification/Notification'
 import { Title } from '../Title/Title'
+
+import '../../styles/base.css'
 
 export type HeaderProps = {
   title: string
 }
 
-export const Header = (
-  {
-    title
-  }: HeaderProps
-) => (
-  <div className='header-container'>
-    <div className='header-title'>
-      <Avatar picture='https://picsum.photos/200' user='logo' />
-      <Title height='semibold' size='lg' text={title} />
+export const Header = ({ title }: HeaderProps) => (
+  <div className="header-container">
+    <div className="header-title">
+      <div className="header-logo">
+        <Logo />
+      </div>
+      <Title height="semibold" size="lg" text={title} />
     </div>
-    <div className='header-user'>
+    <div className="header-user">
       <Notification hasNotifications />
-      <HeaderUser text='PS' />
+      <HeaderUser text="PS" />
     </div>
   </div>
 )

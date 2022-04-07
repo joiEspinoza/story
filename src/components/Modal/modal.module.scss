@@ -6,7 +6,7 @@
   @apply min-h-screen w-screen;
 
   .header {
-    @apply flex flex-row items-center justify-between border-b border-slate-400 pl-12 pr-4 py-4;
+    @apply flex flex-row items-center justify-between border-b border-slate-400 pl-12 pr-4;
 
     .title {
       @apply text-gray-600;

@@ -5,6 +5,10 @@
     @apply flex flex-row items-center justify-center space-x-4;
   }
 
+  .header-logo {
+    @apply w-6 h-6;
+  }
+
   .header-user {
     @apply flex flex-row items-center justify-center space-x-6;
   }
