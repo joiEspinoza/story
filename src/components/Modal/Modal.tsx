@@ -71,10 +71,11 @@ const ModalHeader = ({
 
       <Button
         icon="XIcon"
-        visualType="default"
-        color="secondary"
+        label=""
         onClick={toggleModalHeader}
+        visualType="link"
       />
+      
     </div>
   </div>
 )
@@ -96,7 +97,12 @@ export function Modal({
             : 'modal-container__centered',
         ].join(' ')}
       >
-        {header && <ModalHeader {...header} />}
+        {header && (
+          <>
+            <ModalHeader {...header} />
+            <hr/>
+          </>
+        )}
         <div className="modal-body">{body}</div>
       </div>
 

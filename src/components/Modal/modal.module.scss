@@ -6,7 +6,7 @@
   @apply min-h-screen w-screen;
 
   .header {
-    @apply flex flex-row items-center justify-between border-b border-slate-400 pl-12 pr-4 py-4;
+    @apply flex flex-row items-center justify-between pl-12 pr-4 py-4;
 
     .title {
       @apply text-gray-600;
@@ -35,10 +35,10 @@
 }
 
 .modal-container__centered {
-  @apply border border-gray-200 rounded-md top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-1/2;
+  @apply px-3 border border-gray-200 rounded-md top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-1/2;
 
   .header {
-    @apply flex flex-row items-center justify-between mx-8 my-6;
+    @apply flex flex-row items-center justify-between mx-8 mb-1.5 mt-6;
 
     .title {
       @apply text-gray-600;
@@ -52,7 +52,7 @@
   }
 
   .modal-body {
-    @apply px-8 pb-8;
+    @apply px-8 pb-8 mt-6;
   }
 }
 
