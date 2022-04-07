@@ -53,10 +53,10 @@ const ModalHeader = ({
   titles,
   optionsStepper,
   toggleModalHeader,
-  customTitleClass
+  customTitleClass=""
 }: ModalHeaderProps) => (
   <div className="header">
-    {title && <div className={customTitleClass}>{title}</div>}
+    {title && <div className={[customTitleClass].join(' ')}>{title}</div>}
     {titles && (
       <div className="titles">
         {titles.map((singleTitle) => (
