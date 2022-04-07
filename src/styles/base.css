@@ -702,11 +702,6 @@
         padding-right: 1rem;
 }
 
-.modal-container__fullscreen .header .title{
-        --tw-text-opacity: 1;
-        color: rgb(75 85 99 / var(--tw-text-opacity));
-}
-
 .modal-container__fullscreen .header .titles{
         display: flex;
         gap: 2.5rem;
@@ -763,17 +758,6 @@
         align-items: center;
         justify-content: space-between;
 }
-
-.modal-container__centered .header .title{
-        --tw-text-opacity: 1;
-        color: rgb(75 85 99 / var(--tw-text-opacity));
-}
-
-.modal-container__centered .header .stepper-container {
-    }
-
-.modal-container__centered .header .buttons {
-    }
 
 .modal-container__centered .modal-body{
         margin-top: 1.5rem;

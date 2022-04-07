@@ -21,6 +21,7 @@ Default.args = {
   ),
   header: {
     title: 'Default Modal',
+    customTitleClass:""
   },
 }
 
@@ -43,6 +44,7 @@ WithStepper.args = {
         label: '',
       },
     ],
+    customTitleClass:""
   },
 }
 
@@ -60,6 +62,7 @@ ActionButtons.args = {
         label: 'Enviar solicitud',
       },
     ],
+    customTitleClass:""
   },
 }
 
@@ -75,7 +78,9 @@ multiTitle.args = {
       { text: 'Información' },
       { text: 'Carga de artículos', active: true },
     ],
+    customTitleClass:""
   },
+  
 }
 
 export const Centered = Template.bind({})
@@ -87,6 +92,8 @@ Centered.args = {
   ),
   header: {
     title: 'Centered Modal',
+    customTitleClass:""
   },
+  
   fullscreen: false,
 }

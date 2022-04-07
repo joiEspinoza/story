@@ -15,6 +15,7 @@ export interface ModalHeaderProps {
   buttons?: Array<ButtonProps>
   optionsStepper?: StepperProps['elements']
   toggleModalHeader?: () => void
+  customTitleClass: string
 }
 
 export interface ModalProps {
@@ -41,7 +42,7 @@ export interface ModalProps {
    */
   toggleModal?: () => void
   /**
-   * Clase custome para center Modal
+   * Clase custome para contenedor
    */
   customContainer : string
 }
@@ -52,9 +53,10 @@ const ModalHeader = ({
   titles,
   optionsStepper,
   toggleModalHeader,
+  customTitleClass
 }: ModalHeaderProps) => (
   <div className="header">
-    {title && <div className="title">{title}</div>}
+    {title && <div className={customTitleClass}>{title}</div>}
     {titles && (
       <div className="titles">
         {titles.map((singleTitle) => (

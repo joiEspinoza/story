@@ -8,10 +8,6 @@
   .header {
     @apply flex flex-row items-center justify-between pl-12 pr-4 py-4;
 
-    .title {
-      @apply text-gray-600;
-    }
-
     .titles {
       @apply flex gap-10 text-slate-500;
 
@@ -39,16 +35,6 @@
 
   .header {
     @apply flex flex-row items-center justify-between mx-8 mb-1.5 mt-6;
-
-    .title {
-      @apply text-gray-600;
-    }
-
-    .stepper-container {
-    }
-
-    .buttons {
-    }
   }
 
   .modal-body {
