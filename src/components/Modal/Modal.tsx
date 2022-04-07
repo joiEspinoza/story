@@ -40,6 +40,10 @@ export interface ModalProps {
    * Funcion despliegue Modal
    */
   toggleModal?: () => void
+  /**
+   * Clase custome para center Modal
+   */
+  customContainer : string
 }
 
 const ModalHeader = ({
@@ -75,7 +79,7 @@ const ModalHeader = ({
         onClick={toggleModalHeader}
         visualType="link"
       />
-      
+
     </div>
   </div>
 )
@@ -86,6 +90,7 @@ export function Modal({
   fullscreen = true,
   position,
   toggleModal,
+  customContainer = ""
 }: ModalProps) {
   return (
     <>
@@ -94,7 +99,7 @@ export function Modal({
           'modal-container',
           fullscreen
             ? 'modal-container__fullscreen'
-            : 'modal-container__centered',
+            : 'modal-container__centered',customContainer
         ].join(' ')}
       >
         {header && (
