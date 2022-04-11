@@ -34,7 +34,7 @@ Default.args = {
     }
   ],
   visibleButton: true,
-  onClick: () => {console.log('presionado')},
+  onClick: () => null,
   optionButton:(
     <div>
       <p>Custome element</p>

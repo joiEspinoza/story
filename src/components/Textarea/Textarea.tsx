@@ -19,13 +19,18 @@ export interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement>  {
   Requerido
    */
   required: boolean
+  /**
+   * Indica que el textarea tiene un error
+   */
+  hasError?: boolean
 }
 
 export function Textarea({
-  label = '', 
-  placeholder = '', 
-  readonly = false,
-  required = false, 
+  label, 
+  placeholder, 
+  readonly,
+  required,
+  hasError = false,
   ...props
 }: Props) {
   const textareaClass = `textarea-control-${readonly ? 'inactive' : 'active'}`
@@ -33,7 +38,13 @@ export function Textarea({
   return (
     <div className="textarea-container">
       <span className="textarea-label">{label}{required && '*'}</span>
-      <textarea className={textareaClass} readOnly={readonly} placeholder={placeholder} {...props}/>
+      <textarea className={[textareaClass, hasError && 'has-error'].join(' ')} readOnly={readonly} placeholder={placeholder} {...props}/>
     </div>
   )
+}
+
+Textarea.defaultProps = {
+  placeholder: '',
+  readonly: false,
+  hasError: false
 }

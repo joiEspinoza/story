@@ -63,3 +63,8 @@ export function Popover({ text = '', buttons }: Props) {
     </>
   )
 }
+
+Popover.defaultProps = {
+  text: '',
+  buttons: undefined,
+}

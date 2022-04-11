@@ -57,10 +57,10 @@ const renderBrandSelector = (brands: NavbarProps['brandItems'] = []) => {
 }
 
 export const Navbar = ({
-  title = '',
+  title,
   brandItems,
   navbarButtons,
-  finder = true,
+  finder,
 }: NavbarProps) => (
   <div className="navbar-container">
     <div className="navbar-left">
@@ -81,3 +81,10 @@ export const Navbar = ({
     </div>
   </div>
 )
+
+Navbar.defaultProps = {
+  title: '',
+  brandItems: [],
+  navbarButtons: [],
+  finder: true,
+}

@@ -573,7 +573,7 @@
         font-size: 0.875rem;
         line-height: 1.25rem;
         --tw-text-opacity: 1;
-        color: rgb(107 114 128 / var(--tw-text-opacity));
+        color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
 .input-container .input-control-active{
@@ -581,24 +581,40 @@
         border-radius: 0.375rem;
         border-width: 2px;
         --tw-border-opacity: 1;
-        border-color: rgb(107 114 128 / var(--tw-border-opacity));
+        border-color: rgb(148 163 184 / var(--tw-border-opacity));
         padding-left: 1rem;
         padding-right: 1rem;
         padding-top: 0.875rem;
         padding-bottom: 0.875rem;
         --tw-text-opacity: 1;
-        color: rgb(107 114 128 / var(--tw-text-opacity));
+        color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
 .input-container .input-control-inactive{
         margin-top: 0.75rem;
         border-radius: 0.375rem;
+        --tw-border-opacity: 1;
+        border-color: rgb(203 213 225 / var(--tw-border-opacity));
         padding-left: 1rem;
         padding-right: 1rem;
         padding-top: 0.875rem;
         padding-bottom: 0.875rem;
         --tw-text-opacity: 1;
-        color: rgb(107 114 128 / var(--tw-text-opacity));
+        color: rgb(203 213 225 / var(--tw-text-opacity));
+}
+
+.input-container .has-error{
+        --tw-border-opacity: 1;
+        border-color: rgb(239 68 68 / var(--tw-border-opacity));
+        --tw-text-opacity: 1;
+        color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.input-container .has-warning{
+        --tw-border-opacity: 1;
+        border-color: rgb(234 179 8 / var(--tw-border-opacity));
+        --tw-text-opacity: 1;
+        color: rgb(234 179 8 / var(--tw-text-opacity));
 }
 
 .badge-container{
@@ -819,8 +835,7 @@
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'><path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' /></svg>");
         height: 0.875rem;
         width: 0.875rem;
-        -webkit-appearance: none;
-                appearance: none;
+        appearance: none;
         border-radius: 9999px;
         border-width: 0px;
       }
@@ -882,6 +897,13 @@
         background-color: rgb(21 128 61 / var(--tw-bg-opacity));
         --tw-text-opacity: 1;
         color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.select-container .has-error{
+        --tw-border-opacity: 1;
+        border-color: rgb(239 68 68 / var(--tw-border-opacity));
+        --tw-text-opacity: 1;
+        color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .stepper-container{
@@ -1109,8 +1131,8 @@
 
 .sidebar-container{
         display: flex;
-        width: 15rem;
-        max-width: 20rem;
+        width: -moz-fit-content;
+        width: fit-content;
         flex-direction: column;
         justify-content: space-between;
         --tw-bg-opacity: 1;
@@ -1118,6 +1140,17 @@
         padding-left: 1.5rem;
         padding-right: 1.5rem;
         padding-top: 1.5rem;
+}
+
+.sidebar-collpsebar{
+        display: flex;
+        align-items: center;
+        border-left-width: 2px;
+        border-right-width: 2px;
+        --tw-border-opacity: 1;
+        border-color: rgb(229 231 235 / var(--tw-border-opacity));
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .sidebar-container hr{
@@ -1154,7 +1187,6 @@
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
         cursor: pointer;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
         align-items: center;
         justify-items: stretch;
 }
@@ -1180,6 +1212,10 @@
 
 .sidebar-menu-left{
         display: inline-flex;
+        align-items: center;
+}
+
+.sidebar-menu-left-collapse{
         align-items: center;
 }
 
@@ -1311,6 +1347,13 @@
         padding-bottom: 0.875rem;
         --tw-text-opacity: 1;
         color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+.textarea-container .has-error{
+        --tw-border-opacity: 1;
+        border-color: rgb(239 68 68 / var(--tw-border-opacity));
+        --tw-text-opacity: 1;
+        color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .form-switch{
@@ -2338,7 +2381,7 @@
 }
 
 /*
-    ! tailwindcss v3.0.21 | MIT License | https://tailwindcss.com
+    ! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com
     */
 
 /*
@@ -2766,6 +2809,10 @@ Ensure the default browser behavior of the `hidden` attribute.
         position: absolute;
 }
 
+.flex{
+        display: flex;
+}
+
 .hidden{
         display: none;
 }
@@ -2800,6 +2847,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-12{
         width: 3rem;
+}
+
+.w-fit{
+        width: -moz-fit-content;
+        width: fit-content;
 }
 
 .transform{
@@ -2892,6 +2944,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .font-bold{
         font-weight: 700;
+}
+
+.text-blue-600{
+        --tw-text-opacity: 1;
+        color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
 .outline{

@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 import '../../styles/base.css'
 import { Button, ButtonProps } from '../Button/Button'
 import { Icon, Props as IconProps } from '../Icon/Icon'
@@ -16,6 +15,7 @@ type SidebarMenuElement = {
 
 type SidebarMenuProps = {
   elements: SidebarMenuElement[]
+  collapse : any
 }
 
 export type SidebarProps = {
@@ -24,7 +24,7 @@ export type SidebarProps = {
   footerText?: string
 }
 
-const SidebarMenu = ({ elements }: SidebarMenuProps) => {
+const SidebarMenu = ({ elements,collapse }: SidebarMenuProps) => {
   const sidebarElements = elements.map((element) => {
     if (element.key === 'separator') {
       return (
@@ -41,10 +41,14 @@ const SidebarMenu = ({ elements }: SidebarMenuProps) => {
     const hasItems = element.items !== undefined
 
     return (
-      <li key={id} className={['sidebar-menu-element'].join(' ')} { ...route && ('algo') }>
-        <div className={['sidebar-menu-left', isActive && 'active '].join(' ')}>
-          {hasIcon ? <Icon icon={icon} /> : <Icon icon="CheckCircleIcon" />}
-          <span>{label}</span>
+      <li
+        key={id}
+        className={['sidebar-menu-element'].join(' ')}
+        {...(route && 'algo')}
+      >
+        <div className={[!collapse ? 'sidebar-menu-left' : "sidebar-menu-left-collapse", isActive && 'active'].join(' ')}>
+          <span>{hasIcon ? <Icon icon={icon} /> : <Icon icon="CheckCircleIcon" />}</span>
+          <span className={collapse && 'hidden'}>{label}</span>
         </div>
         <div className={['sidebar-menu-right'].join(' ')}>
           {hasItems &&
@@ -89,23 +93,57 @@ export const Sidebar = ({
   mainButton,
   menuElements,
   footerText,
-}: SidebarProps) => (
-  <div className="sidebar-container">
-    <div>
-      {mainButton && (
-        <>
-          <div className="sidebar-main-button">
-            <Button {...mainButton} />
+}: SidebarProps) =>
+{
+  const [collapse, setCollapse] = useState(false)
+  return (
+    <div className="flex flex-row">
+      <div className="sidebar-container">
+        <div className="w-fit">
+          {mainButton && (
+            <>
+              <div className="sidebar-main-button">
+                <Button
+                  {...mainButton}
+                  label={!collapse ? mainButton.label : ''}
+                />
+              </div>
+              <hr />
+            </>
+          )}
+
+          <SidebarMenu elements={menuElements} collapse={collapse} />
+        </div>
+
+        {!collapse && (
+          <div>
+            <div className="sidebar-footer">{footerText}</div>
           </div>
-          <hr />
-        </>
-      )}
+        )}
+      </div>
 
-      <SidebarMenu elements={menuElements} />
+      <div
+        className="sidebar-collpsebar"
+        onKeyDown={() => {}}
+        role="button"
+        aria-hidden="true"
+        onClick={() => {
+          setCollapse(!collapse)
+        }}
+      >
+        <span className="text-blue-600">
+          {!collapse ? (
+            <Icon icon="ChevronLeftIcon" />
+          ) : (
+            <Icon icon="ChevronRightIcon" />
+          )}
+        </span>
+      </div>
     </div>
+  )
+} 
 
-    <div>
-      <div className="sidebar-footer">{footerText}</div>
-    </div>
-  </div>
-)
+Sidebar.defaultProps = {
+  mainButton: undefined,
+  footerText: '',
+}

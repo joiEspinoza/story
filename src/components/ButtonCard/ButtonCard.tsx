@@ -31,3 +31,7 @@ export const ButtonCard = ({ title, subtitle, icon, ...props }: ButtonCardProps)
     <div className="buttonCard-subtitle">{subtitle}</div>
   </div>
 )
+
+ButtonCard.defaultProps = {
+  onClick: () => { },
+}

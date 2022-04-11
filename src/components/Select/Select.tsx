@@ -38,15 +38,20 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
    * Tipo de visualizacion
    */
   visualType?: 'primary' | 'jumbo'
+  /**
+   * Indica que el select tiene un error
+   */
+  hasError?: boolean
 }
 
 export function Select({
-  label = '',
-  placeholder = 'Seleccionar',
-  readonly = false,
-  required = false,
+  label,
+  placeholder,
+  readonly,
+  required,
   opciones,
-  visualType = 'primary',
+  visualType,
+  hasError = false,
   ...props
 }: SelectProps) {
   const clase = visualType === 'primary'
@@ -63,10 +68,18 @@ export function Select({
   return (
     <div className='select-container'>
       <span className="select-label">{label}{required && '*'}</span>
-      <select className={clase} disabled={readonly} {...props}>
+      <select className={[clase, hasError && 'has-error'].join(' ')} disabled={readonly} {...props}>
         <option value='-1'>{placeholder}</option>
         {opcionesSelect}
       </select>
     </div>
   )    
+}
+
+Select.defaultProps = {
+  label: '',
+  readonly: false,
+  required: false,
+  visualType: 'primary',
+  hasError: false
 }

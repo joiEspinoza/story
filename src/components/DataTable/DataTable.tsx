@@ -75,7 +75,11 @@ function Paginator({
   siblingCount = 1,
   totalCount,
 }: any) {
-  const [pageSize] = useState(numPerPage[0])
+  const [pageSize, setPageSize] = useState(numPerPage[0])
+
+  useEffect(() => {
+    onPageChange({ currentPage: 1, pageSize })
+  }, [pageSize])
 
   const paginationRange = usePagination({
     currentPage,
@@ -84,18 +88,27 @@ function Paginator({
     siblingCount,
   })
 
-  if (currentPage === 0 || paginationRange.length < 2) return null
+  if (currentPage === 0 || paginationRange.length < 1) return null
 
   const onSelectPageNumber = (e: any) => {
-    console.log(e)
+    setPageSize(parseInt(e.target.value, 10))
   }
 
   const onNext = () => {
-    onPageChange(currentPage + 1)
+    if (currentPage < paginationRange.length) {
+      onPageChange({ currentPage: currentPage + 1, pageSize })
+    }
+  }
+
+  const onSelectPage = (e: any) => {
+    const page = parseInt(e.target?.innerHTML, 10)
+    onPageChange({ currentPage: page, pageSize })
   }
 
   const onPrev = () => {
-    onPageChange(currentPage - 1)
+    if (currentPage > 1) {
+      onPageChange({ currentPage: currentPage - 1, pageSize })
+    }
   }
 
   return (
@@ -103,7 +116,7 @@ function Paginator({
       <p>{labelItemPerPage}</p>
       <select className="paginator-select-page" onChange={onSelectPageNumber}>
         {numPerPage.map((n: number, i: number) => (
-          <option key={i.toString()}>{n}</option>
+          <option key={Math.max(i)}>{n}</option>
         ))}
       </select>
       <p>
@@ -127,7 +140,7 @@ function Paginator({
         }`
 
         return (
-          <button className={classbutton} key={i.toString()} type="button">
+          <button className={classbutton} key={Math.max(i)} type="button" onClick={onSelectPage}>
             {pageNumber}
           </button>
         )
@@ -207,22 +220,28 @@ export interface DataTableProps {
    Cantidad total de filas
    */
   totalCount: number
+  /*
+  * Evento que se ejecuta cuando se cambia de página
+  */
+  onPageChange?: any
 }
 
 export function DataTable({
-  data = [],
-  enableCheckbox = true,
-  enablePaginator = true,
-  header = [],
-  labelFromTo = 'de',
-  labelItemPerPage = 'Item por página',
-  numPerPage = [10, 25, 50],
+  data,
+  enableCheckbox,
+  enablePaginator,
+  header,
+  labelFromTo,
+  labelItemPerPage,
+  numPerPage,
   onCheckStatus,
   totalCount,
+  onPageChange
 }: DataTableProps) {
   const [checkHeader, setCheckHeader] = useState(false)
   const [checkData, setCheckData] = useState(new Array(data.length).fill(false))
   const [currentPage, setCurrentPage] = useState(1)
+  const [pageSize, setPageSize] = useState(numPerPage[0])
 
   const handleCheckData = (position: number) => {
     const updateCheckedData = checkData.map((dat, index) =>
@@ -254,6 +273,10 @@ export function DataTable({
     }
   }, [checkHeader])
 
+  useEffect(() => {
+    onPageChange({ currentPage, pageSize })
+  }, [currentPage, pageSize])
+
   return (
     <div className="datatable-container">
       <div>
@@ -268,14 +291,14 @@ export function DataTable({
             </div>
           )}
           {header.map((h, i) => (
-            <div className="datatable-header-column" key={i.toString()}>
+            <div className="datatable-header-column" key={Math.max(i)}>
               {h.label}
             </div>
           ))}
         </div>
         <div>
           {data.map((dd, ii) => (
-            <div className="datatable-data" key={ii.toString()}>
+            <div className="datatable-data" key={Math.max(ii)}>
               {header.length > 0 && enableCheckbox && (
                 <div className="datatable-check">
                   <input
@@ -286,7 +309,7 @@ export function DataTable({
                 </div>
               )}
               {header.map((h, i) => (
-                <div className="datatable-data-column" key={i.toString()}>
+                <div className="datatable-data-column" key={Math.max(i)}>
                   {dd[h.field]}
                 </div>
               ))}
@@ -300,10 +323,19 @@ export function DataTable({
           labelFromTo={labelFromTo}
           labelItemPerPage={labelItemPerPage}
           numPerPage={numPerPage}
-          onPageChange={(e: any) => setCurrentPage(e)}
+          onPageChange={(e: any) => {
+              setPageSize(e.pageSize)
+              setCurrentPage(e.currentPage)
+            }
+          }
           totalCount={totalCount}
         />
       )}
     </div>
   )
+}
+
+DataTable.defaultProps = {
+  onCheckStatus: () => {},
+  onPageChange: () => {}
 }

@@ -34,8 +34,8 @@ export function ListItem({
 }:ListItemProps) {
   return (
     <div className={`listitem-container ${containerCustomeClass}`}>
-      {listBlocks.map((bl:ListBlockProps, i:number) => (
-        <div className='listitem-block' key={i.toString()}>
+      {listBlocks.map((bl:ListBlockProps) => (
+        <div className='listitem-block' key={Math.random()}>
           <div className='listitem-block-header'>{bl.header}</div>
           <div className='listitem-block-description'>{bl.description}</div>
         </div>

@@ -2,14 +2,22 @@
   @apply grid grid-cols-1;
 
   .input-label {
-    @apply absolute px-1 ml-2 text-sm text-gray-500 bg-white;
+    @apply absolute px-1 ml-2 text-sm text-gray-800 bg-white;
   }
 
   .input-control-active {
-    @apply mt-3 px-4 py-3.5 rounded-md border-2 border-gray-500 text-gray-500;
+    @apply mt-3 px-4 py-3.5 rounded-md border-2 border-slate-400 text-slate-600;
   }
 
   .input-control-inactive {
-    @apply mt-3 px-4 py-3.5 rounded-md text-gray-500;
+    @apply mt-3 px-4 py-3.5 rounded-md text-slate-300 border-slate-300;
+  }
+
+  .has-error {
+    @apply border-red-500 text-red-500;
+  }
+
+  .has-warning {
+    @apply border-yellow-500 text-warning-500;
   }
 }

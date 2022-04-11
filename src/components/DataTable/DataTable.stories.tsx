@@ -5,7 +5,11 @@ import { DataTable, DataTableProps } from './DataTable'
 
 export default {
   title: 'v1/DataTable',
-  component: DataTable
+  component: DataTable,
+  argTypes: {
+    onCheckStatus: { action: 'clicked' },
+    onPageChange: { action: 'clicked' }
+  },
 } as ComponentMeta<typeof DataTable>
 
 const Template: ComponentStory<typeof DataTable> = (args: DataTableProps) => <DataTable {...args} />
@@ -64,6 +68,5 @@ Default.args = {
   labelFromTo: 'de',
   labelItemPerPage: 'Item por página',
   numPerPage: [10, 25, 50],
-  onCheckStatus: ((e:any) => console.log(e)),
   totalCount: 50
 }

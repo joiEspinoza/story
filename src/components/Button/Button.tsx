@@ -32,11 +32,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({
-  visualType = 'default',
-  color = 'primary',
+  visualType,
+  color,
   label,
   icon,
-  iconPosition='left',
+  iconPosition,
   ...props
 }: ButtonProps) {
 
@@ -56,4 +56,13 @@ export function Button({
       { label }
     </button>
   )
+}
+
+Button.defaultProps = {
+  visualType: 'default',
+  color: 'primary',
+  label: '',
+  icon: '',
+  iconPosition: 'left',
+  onClick: () => {},
 }

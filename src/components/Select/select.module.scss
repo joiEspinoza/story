@@ -21,5 +21,8 @@
     @apply bg-green-700 text-white;
   }
 
-}
+  .has-error {
+    @apply border-red-500 text-red-500;
+  }
 
+}

@@ -11,7 +11,8 @@ export default {
     label: { control: 'text' },
     placeholder: { control: 'text' },
     value: { control: 'text' },
-    readonly: { control: 'boolean' }
+    readonly: { control: 'boolean' },
+    hasError: { control: 'boolean' }
   }
 } as ComponentMeta<typeof Textarea>;
 
@@ -22,3 +23,6 @@ Primary.args = { label: 'Primary Label', placeholder: 'Primary Placeholder' };
 
 export const Disabled = Template.bind({});
 Disabled.args = { label: 'Primary Label', placeholder: 'Primary Placeholder', disabled: true };
+
+export const HasError = Template.bind({});
+HasError.args = { label: 'Primary Label', placeholder: 'Primary Placeholder', hasError: true };

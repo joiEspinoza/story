@@ -13,25 +13,17 @@ export interface LogoProps {
    */
   circleColor?: string
   /*
-  * Color del punto
-  */
+   * Color del punto
+   */
   eyeColor?: string
 }
 
 /**
  * Primary UI component for user interaction
  */
-export function Logo({
-  smileColor = '#60A5FA',
-  circleColor = '#2563EB',
-  eyeColor = '#F97316'
-}: LogoProps) {
+export function Logo({ smileColor, circleColor, eyeColor }: LogoProps) {
   return (
-    <svg
-      viewBox="0 0 31 35"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 31 35" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0_3904_38805)">
         <path
           d="M27.5397 11.1156C29.4504 11.1156 30.9993 9.59659 30.9993 7.72282C30.9993 5.84906 29.4504 4.33008 27.5397 4.33008C25.629 4.33008 24.0801 5.84906 24.0801 7.72282C24.0801 9.59659 25.629 11.1156 27.5397 11.1156Z"
@@ -58,4 +50,10 @@ export function Logo({
       </defs>
     </svg>
   )
+}
+
+Logo.defaultProps = {
+  smileColor: '#60A5FA',
+  circleColor: '#2563EB',
+  eyeColor: '#F97316',
 }

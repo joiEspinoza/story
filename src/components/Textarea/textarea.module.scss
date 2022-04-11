@@ -12,4 +12,8 @@
   .textarea-control-inactive {
     @apply mt-3 px-4 py-3.5 rounded-md text-gray-500;
   }
+
+  .has-error {
+    @apply border-red-500 text-red-500;
+  }
 }

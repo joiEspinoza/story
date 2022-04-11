@@ -25,3 +25,7 @@ export function Avatar({
     </div>
   )
 }
+
+Avatar.defaultProps = {
+  picture: '',
+}

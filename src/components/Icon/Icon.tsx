@@ -1,43 +1,46 @@
 import React from 'react'
-import * as SolidIcons from '@heroicons/react/solid';
-import * as OutlineIcons from '@heroicons/react/outline';
+import * as SolidIcons from '@heroicons/react/solid'
+import * as OutlineIcons from '@heroicons/react/outline'
 
-export type IconName = keyof typeof SolidIcons | keyof typeof OutlineIcons;
+export type IconName = keyof typeof SolidIcons | keyof typeof OutlineIcons
 
 export interface Props {
-  icon: IconName;
-  outline?: boolean;
-  spinner?: boolean;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  icon: IconName
+  outline?: boolean
+  spinner?: boolean
+  size?: 'sm' | 'md' | 'lg' | 'xl'
 }
 
-export const Icon = (props: Props): JSX.Element => {
-  
-  const { icon, outline = false, spinner = false, size = 'md'} = props;
+export const Icon = ({ icon, outline, spinner, size }: Props): JSX.Element => {
 
-  const iconSpin = spinner ? 'animate-spin' : '';
+  const iconSpin = spinner ? 'animate-spin' : ''
 
-  let iconSize;
-  switch(size)
-  {
+  let iconSize
+  switch (size) {
     case 'sm':
-      iconSize = 'w-4 h-4';
-      break;
+      iconSize = 'w-4 h-4'
+      break
     case 'md':
-      iconSize = 'w-6 h-6';
-      break;
+      iconSize = 'w-6 h-6'
+      break
     case 'lg':
-      iconSize = 'w-8 h-8';
-      break;
+      iconSize = 'w-8 h-8'
+      break
     case 'xl':
-      iconSize = 'w-12 h-12';
-      break;
+      iconSize = 'w-12 h-12'
+      break
     default:
-      iconSize = 'w-6 h-6';
-      break;
+      iconSize = 'w-6 h-6'
+      break
   }
 
-  const IconToShow = outline ? OutlineIcons[icon] : SolidIcons[icon];
+  const IconToShow = outline ? OutlineIcons[icon] : SolidIcons[icon]
 
-  return <IconToShow className={[iconSize, iconSpin].join(' ')} />;
-};
+  return <IconToShow className={[iconSize, iconSpin].join(' ')} />
+}
+
+Icon.defaultProps = {
+  outline: false,
+  spinner: false,
+  size: 'md'
+}

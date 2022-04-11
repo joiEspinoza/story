@@ -20,9 +20,9 @@ export interface TitleProps {
  * Primary UI component for user interaction
  */
 export function Title({
-  size = 'xl',
-  height = 'normal',
-  text = 'Custom title',
+  size,
+  height,
+  text,
 }: TitleProps) {
   let titleSize
   let titleHeight
@@ -53,4 +53,9 @@ export function Title({
   return (
     <span className={classTitle}>{text}</span>
   )
+}
+
+Title.defaultProps = {
+  size: 'xl',
+  height: 'normal',
 }

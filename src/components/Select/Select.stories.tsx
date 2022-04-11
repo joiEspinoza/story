@@ -10,7 +10,8 @@ export default {
     label: { control: 'text'},
     placeholder: {control: 'text'},
     readonly: {control: 'boolean'},
-    visualType: { control: 'select'}
+    visualType: { control: 'select'},
+    hasError: { control: 'boolean'}
   }
 } as ComponentMeta<typeof Select>
 
@@ -50,4 +51,25 @@ Badge.args = {
     }
   ],
   visualType: 'jumbo'
+}
+
+export const HasError = Template.bind({});
+HasError.args = {
+  label: 'Select label',
+  placeholder: 'Seleccionar',
+  opciones: [
+    {
+      key: 1,
+      labelOption: 'Elemento 1'
+    },
+    {
+      key: 2,
+      labelOption: 'Elemento 2'
+    },
+    {
+      key: 3,
+      labelOption: 'Elemento 3'
+    }
+  ],
+  hasError: true
 }

@@ -14,10 +14,10 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   /**
    * Evento OnChange
    */
-  onChange?: () => void;
+  onChange?: () => void
 }
 
-export function Switch({ label = '', checked = false, ...props }: Props) {
+export function Switch({ label, checked, ...props }: Props) {
   const [isChecked, setIsChecked] = useState(checked)
 
   const handleOnChange = () => {
@@ -30,13 +30,15 @@ export function Switch({ label = '', checked = false, ...props }: Props) {
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className="form-switch">
-      <input
-        type="checkbox"
-        checked={isChecked}
-        onChange={handleOnChange}
-      />
+      <input type="checkbox" checked={isChecked} onChange={handleOnChange} />
       <i />
       {label}
     </label>
   )
+}
+
+Switch.defaultProps = {
+  label: '',
+  checked: false,
+  onChange: () => {},
 }
