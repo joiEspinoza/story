@@ -2364,16 +2364,6 @@
         border-bottom-right-radius: 9999px;
 }
 
-.datepicker-container .no-error{
-        --tw-border-opacity: 1;
-        border-color: rgb(107 114 128 / var(--tw-border-opacity));
-}
-
-.datepicker-container .has-error{
-        --tw-border-opacity: 1;
-        border-color: rgb(239 68 68 / var(--tw-border-opacity));
-}
-
 /*
     ! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com
     */
@@ -2864,6 +2854,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex-row-reverse{
         flex-direction: row-reverse;
+}
+
+.border-red-500{
+        --tw-border-opacity: 1;
+        border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+
+.border-gray-500{
+        --tw-border-opacity: 1;
+        border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 
 .px-4{

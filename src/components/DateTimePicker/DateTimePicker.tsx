@@ -30,7 +30,7 @@ export const DateTimePicker = ({ label, required, hasError = false }: Props) => 
         {label} {required && '*'}
       </span>
 
-      <div className={['dates-container', hasError ? 'has-error' : 'no-error'].join(' ') }>
+      <div className={['dates-container', hasError ? 'border-red-500' : 'border-gray-500'].join(' ') }>
 
         <DatePicker
           id="startDate"
