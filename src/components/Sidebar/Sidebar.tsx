@@ -129,7 +129,7 @@ export const Sidebar = ({
       <div className="w-fit">
         {mainButton && (
           <>
-            <div className={`sidebar-main-button ${!collapse && 'ml-2'}`}>
+            <div className={`sidebar-main-button ${!collapse ? 'ml-2' : ""}`}>
               <Button
                 {...mainButton}
                 label={!collapse ? mainButton.label : ''}
@@ -140,7 +140,7 @@ export const Sidebar = ({
         )}
 
         <SidebarMenu elements={menuElements} collapse={collapse} />
-        
+
         <CollapseButton collapse={collapse} collapseAction={collapseAction}/>
         
       </div>
