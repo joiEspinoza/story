@@ -30,7 +30,7 @@ export const DateTimePicker = ({ label, required, hasError = false, }: Props) =>
         {label} {required && '*'}
       </span>
 
-      <div className={`dates-container ${hasError ? 'has-error' : 'no-error'}`}>
+      <div className={`dates-container ${hasError ? 'has-error' : ''}`}>
         <DatePicker
           id="startDate"
           selected={startDate}
