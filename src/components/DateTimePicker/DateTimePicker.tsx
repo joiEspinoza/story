@@ -17,10 +17,10 @@ export interface Props {
   /**
    * Indicador de error
    */
-  hasError: boolean
+  hasError?: boolean
 }
 
-export const DateTimePicker = ({ label, required, hasError=false }: Props) => {
+export const DateTimePicker = ({ label, required, hasError = false }: Props) => {
   const [startDate, setStartDate] = useState<Date>()
   const [endDate, setEndDate] = useState<Date>()
 
@@ -64,4 +64,8 @@ export const DateTimePicker = ({ label, required, hasError=false }: Props) => {
       </div>
     </div>
   )
+}
+
+DateTimePicker.defaultProps = {
+  hasError: false
 }
