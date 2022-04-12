@@ -48,16 +48,16 @@ const SidebarMenu = ({ elements,collapse }: SidebarMenuProps) => {
         className={['sidebar-menu-element'].join(' ')}
         {...(route && 'algo')}
       >
-        <div className={[!collapse ? 'sidebar-menu-left' : "sidebar-menu-left-collapse", isActive && 'active'].join(' ')}>
-          <span>{hasIcon ? <Icon icon={icon} /> : <Icon icon="CheckCircleIcon" />}</span>
+        <div className={[!collapse ? 'sidebar-menu-left' : 'sidebar-menu-left-collapse', isActive ? 'active':''].join(' ')}>
+          <span>{hasIcon ? <Icon icon={icon} /> : <Icon icon='CheckCircleIcon' />}</span>
           <span className={collapse && 'hidden'}>{label}</span>
         </div>
         <div className={['sidebar-menu-right'].join(' ')}>
           {hasItems &&
             (isActive ? (
-              <Icon icon="ChevronUpIcon" />
+              <Icon icon='ChevronUpIcon' />
             ) : (
-              <Icon icon="ChevronDownIcon" />
+              <Icon icon='ChevronDownIcon' />
             ))}
         </div>
 
@@ -76,7 +76,7 @@ const SidebarMenu = ({ elements,collapse }: SidebarMenuProps) => {
                   key={subitemId}
                   className={['sidebar-menu-subitem'].join(' ')}
                 >
-                  <span className={[isSubitemActive && 'active '].join(' ')}>
+                  <span className={[isSubitemActive ? 'active' : ''].join(' ')}>
                     {subitemLabel}
                   </span>
                 </li>
@@ -96,21 +96,21 @@ const CollapseButton = (props:any) =>{
   return(
     <span
           onKeyDown={() => {}}
-          role="button"
-          aria-hidden="true"
+          role='button'
+          aria-hidden='true'
           onClick={collapseAction}
-          className="mb-4 text-black ml-4"
+          className='mb-4 text-black ml-4'
         >
           {!collapse ? (
-            <div className="flex flex-row sidebar-menu-element ml-2">
+            <div className='flex flex-row sidebar-menu-element ml-2'>
               <span>
-                <Icon icon="ArrowCircleLeftIcon" />
+                <Icon icon='ArrowCircleLeftIcon' />
               </span>
-              <p className="ml-2">Minimizar</p>
+              <p className='ml-2'>Minimizar</p>
             </div>
           ) : (
             <span>
-              <Icon icon="ArrowCircleRightIcon" />
+              <Icon icon='ArrowCircleRightIcon' />
             </span>
           )}
         </span>
@@ -124,12 +124,13 @@ export const Sidebar = ({
   collapse,
   collapseAction,
 }: SidebarProps) => (
-  <div className="flex flex-row">
-    <div className="sidebar-container">
-      <div className="w-fit">
+  <div className='flex flex-row'>
+    <div className='sidebar-container'>
+      <div className='w-fit'>
         {mainButton && (
           <>
-            <div className={`sidebar-main-button ${!collapse ? 'ml-2' : ""}`}>
+
+            <div className={['sidebar-main-button',`${!collapse ? 'ml-2' : ''}`].join(' ')}>
               <Button
                 {...mainButton}
                 label={!collapse ? mainButton.label : ''}
@@ -145,7 +146,7 @@ export const Sidebar = ({
         
       </div>
 
-      {!collapse && <span className="sidebar-footer">{footerText}</span>}
+      {!collapse && <span className='sidebar-footer'>{footerText}</span>}
     </div>
   </div>
 )
