@@ -1,5 +1,5 @@
 .sidebar-container {
-  @apply flex flex-col w-fit bg-white pt-6 px-6 justify-between min-h-screen
+  @apply flex flex-col max-w-xs bg-white pt-6 px-6 justify-between w-60
 }
 
   .sidebar-container hr {
@@ -7,7 +7,7 @@
   }
 
   .sidebar-container .sidebar-footer {
-    @apply mt-10 text-center text-gray-600 flex flex-col
+    @apply mt-10 text-center text-gray-600
   }
 
   .sidebar-menu-container {
@@ -19,7 +19,7 @@
     }
   
     .sidebar-menu-element {
-      @apply justify-items-stretch items-center my-6 first:mt-0 last:mb-0 cursor-pointer
+      @apply grid-cols-2 justify-items-stretch items-center my-6 first:mt-0 last:mb-0 cursor-pointer
     }
 
     .sidebar-menu-element:hover {
@@ -32,10 +32,6 @@
   
       .sidebar-menu-left {
         @apply inline-flex items-center
-      }
-
-      .sidebar-menu-left-collapse {
-        @apply items-center
       }
   
         .sidebar-menu-left span {
