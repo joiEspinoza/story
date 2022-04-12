@@ -50,7 +50,7 @@ const SidebarMenu = ({ elements,collapse }: SidebarMenuProps) => {
       >
         <div className={[!collapse ? 'sidebar-menu-left' : 'sidebar-menu-left-collapse', isActive ? 'active':''].join(' ')}>
           <span>{hasIcon ? <Icon icon={icon} /> : <Icon icon='CheckCircleIcon' />}</span>
-          <span className={collapse && 'hidden'}>{label}</span>
+          <span className={collapse ? 'hidden' : ""}>{label}</span>
         </div>
         <div className={['sidebar-menu-right'].join(' ')}>
           {hasItems &&
@@ -130,7 +130,7 @@ export const Sidebar = ({
         {mainButton && (
           <>
 
-            <div className={['sidebar-main-button',`${!collapse ? 'ml-2' : ''}`].join(' ')}>
+            <div className={['sidebar-main-button',`${!collapse && 'ml-2'}`].join(' ')}>
               <Button
                 {...mainButton}
                 label={!collapse ? mainButton.label : ''}
