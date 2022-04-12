@@ -12,4 +12,4 @@ export default {
 const Template: ComponentStory<typeof DateTimePicker> = (args:Props) => <DateTimePicker {...args} />;
 
 export const Default = Template.bind({});
-Default.args = { label: 'Fecha y hora de vigencia', required: true };
+Default.args = { label: 'Fecha y hora de vigencia', required: true, hasError: false };
