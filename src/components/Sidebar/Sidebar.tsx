@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../../styles/base.css'
 import { Button, ButtonProps } from '../Button/Button'
 import { Icon, Props as IconProps } from '../Icon/Icon'
@@ -22,6 +22,8 @@ export type SidebarProps = {
   mainButton?: ButtonProps
   menuElements: SidebarMenuProps['elements']
   footerText?: string
+  collapse: boolean
+  collapseAction: () => void
 }
 
 const SidebarMenu = ({ elements,collapse }: SidebarMenuProps) => {
@@ -89,62 +91,65 @@ const SidebarMenu = ({ elements,collapse }: SidebarMenuProps) => {
   return <ul>{sidebarElements}</ul>
 }
 
+const CollapseButton = (props:any) =>{
+  const { collapseAction, collapse } = props
+  return(
+    <span
+          onKeyDown={() => {}}
+          role="button"
+          aria-hidden="true"
+          onClick={collapseAction}
+          className="mb-4 text-black ml-4"
+        >
+          {!collapse ? (
+            <div className="flex flex-row sidebar-menu-element ml-2">
+              <span>
+                <Icon icon="ArrowCircleLeftIcon" />
+              </span>
+              <p className="ml-2">Minimizar</p>
+            </div>
+          ) : (
+            <span>
+              <Icon icon="ArrowCircleRightIcon" />
+            </span>
+          )}
+        </span>
+  )
+}
+
 export const Sidebar = ({
   mainButton,
   menuElements,
   footerText,
-}: SidebarProps) =>
-{
-  const [collapse, setCollapse] = useState(false)
-  return (
-    <div className="flex flex-row">
-      <div className="sidebar-container">
-        <div className="w-fit">
-          {mainButton && (
-            <>
-              <div className={`sidebar-main-button ${!collapse && "ml-2"}`}>
-                <Button
-                  {...mainButton}
-                  label={!collapse ? mainButton.label : ''}
-                />
-              </div>
-              <hr />
-            </>
-          )}
+  collapse,
+  collapseAction,
+}: SidebarProps) => (
+  <div className="flex flex-row">
+    <div className="sidebar-container">
+      <div className="w-fit">
+        {mainButton && (
+          <>
+            <div className={`sidebar-main-button ${!collapse && 'ml-2'}`}>
+              <Button
+                {...mainButton}
+                label={!collapse ? mainButton.label : ''}
+              />
+            </div>
+            <hr />
+          </>
+        )}
 
-          <SidebarMenu elements={menuElements} collapse={collapse} />
-        </div>
-
-        <div>
-          <span
-            onKeyDown={() => {}}
-            role="button"
-            aria-hidden="true"
-            onClick={() => {
-              setCollapse(!collapse)
-            }}
-            className="mb-4 text-black ml-4"
-          >
-            {!collapse ? (
-              <div className='flex flex-row sidebar-menu-element ml-2'>
-                <span>
-                  <Icon icon="ArrowCircleLeftIcon" />
-                </span>
-                <p className='ml-2'>Minimizar</p>
-              </div>
-            ) : (
-              <span>
-                <Icon icon="ArrowCircleRightIcon" />
-              </span>
-              
-            )}
-          </span>
-          {!collapse && <span className="sidebar-footer">{footerText}</span>}
-        </div>
+        <SidebarMenu elements={menuElements} collapse={collapse} />
+        
+        <CollapseButton collapse={collapse} collapseAction={collapseAction}/>
+        
       </div>
+
+      {!collapse && <span className="sidebar-footer">{footerText}</span>}
     </div>
-  )
-} 
+  </div>
+)
+
 
 Sidebar.defaultProps = {
   mainButton: undefined,
