@@ -102,7 +102,7 @@ export const Sidebar = ({
         <div className="w-fit">
           {mainButton && (
             <>
-              <div className="sidebar-main-button">
+              <div className={`sidebar-main-button ${!collapse && "ml-2"}`}>
                 <Button
                   {...mainButton}
                   label={!collapse ? mainButton.label : ''}
@@ -115,29 +115,32 @@ export const Sidebar = ({
           <SidebarMenu elements={menuElements} collapse={collapse} />
         </div>
 
-        {!collapse && (
-          <div>
-            <div className="sidebar-footer">{footerText}</div>
-          </div>
-        )}
-      </div>
-
-      <div
-        className="sidebar-collpsebar"
-        onKeyDown={() => {}}
-        role="button"
-        aria-hidden="true"
-        onClick={() => {
-          setCollapse(!collapse)
-        }}
-      >
-        <span className="text-blue-600">
-          {!collapse ? (
-            <Icon icon="ChevronLeftIcon" />
-          ) : (
-            <Icon icon="ChevronRightIcon" />
-          )}
-        </span>
+        <div>
+          <span
+            onKeyDown={() => {}}
+            role="button"
+            aria-hidden="true"
+            onClick={() => {
+              setCollapse(!collapse)
+            }}
+            className="mb-4 text-black ml-4"
+          >
+            {!collapse ? (
+              <div className='flex flex-row sidebar-menu-element ml-2'>
+                <span>
+                  <Icon icon="ArrowCircleLeftIcon" />
+                </span>
+                <p className='ml-2'>Minimizar</p>
+              </div>
+            ) : (
+              <span>
+                <Icon icon="ArrowCircleRightIcon" />
+              </span>
+              
+            )}
+          </span>
+          {!collapse && <span className="sidebar-footer">{footerText}</span>}
+        </div>
       </div>
     </div>
   )

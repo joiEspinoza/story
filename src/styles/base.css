@@ -1131,6 +1131,7 @@
 
 .sidebar-container{
         display: flex;
+        min-height: 100vh;
         width: -moz-fit-content;
         width: fit-content;
         flex-direction: column;
@@ -1140,17 +1141,6 @@
         padding-left: 1.5rem;
         padding-right: 1.5rem;
         padding-top: 1.5rem;
-}
-
-.sidebar-collpsebar{
-        display: flex;
-        align-items: center;
-        border-left-width: 2px;
-        border-right-width: 2px;
-        --tw-border-opacity: 1;
-        border-color: rgb(229 231 235 / var(--tw-border-opacity));
-        --tw-bg-opacity: 1;
-        background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .sidebar-container hr{
@@ -1163,6 +1153,8 @@
 
 .sidebar-container .sidebar-footer{
         margin-top: 2.5rem;
+        display: flex;
+        flex-direction: column;
         text-align: center;
         --tw-text-opacity: 1;
         color: rgb(75 85 99 / var(--tw-text-opacity));
@@ -2809,6 +2801,18 @@ Ensure the default browser behavior of the `hidden` attribute.
         position: absolute;
 }
 
+.ml-2{
+        margin-left: 0.5rem;
+}
+
+.mb-4{
+        margin-bottom: 1rem;
+}
+
+.ml-4{
+        margin-left: 1rem;
+}
+
 .flex{
         display: flex;
 }
@@ -2946,9 +2950,9 @@ Ensure the default browser behavior of the `hidden` attribute.
         font-weight: 700;
 }
 
-.text-blue-600{
+.text-black{
         --tw-text-opacity: 1;
-        color: rgb(37 99 235 / var(--tw-text-opacity));
+        color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .outline{
