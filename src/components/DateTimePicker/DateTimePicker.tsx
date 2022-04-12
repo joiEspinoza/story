@@ -20,17 +20,17 @@ export interface Props {
   hasError: boolean
 }
 
-export const DateTimePicker = ({ label, required, hasError, }: Props) => {
+export const DateTimePicker = ({ label, required, hasError = false, }: Props) => {
   const [startDate, setStartDate] = useState<Date>()
   const [endDate, setEndDate] = useState<Date>()
 
   return (
     <div className="datepicker-container">
-      <span className={`${hasError ? 'has-error' : 'no-error'} datepicker-label`}>
+      <span className='datepicker-label'>
         {label} {required && '*'}
       </span>
 
-      <div className={`${hasError ? 'has-error' : 'no-error'} dates-container`}>
+      <div className={`dates-container ${hasError ? 'has-error' : 'no-error'}`}>
         <DatePicker
           id="startDate"
           selected={startDate}

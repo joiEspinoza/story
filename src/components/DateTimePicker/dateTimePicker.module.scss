@@ -802,11 +802,11 @@
   }
 
   .no-error{
-    @apply border-gray-500 text-gray-500
+    @apply border-gray-500
   }
 
   .has-error {
-    @apply border-red-500 text-red-500;
+    @apply border-red-500
   }
 
 }
