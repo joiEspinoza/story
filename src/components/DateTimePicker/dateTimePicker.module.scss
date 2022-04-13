@@ -755,7 +755,7 @@
   .dates-container {
     @apply inline-flex items-center gap-2 justify-between;
     @apply mt-3 px-4 py-3.5;
-    @apply bg-white rounded-md border-2 text-gray-500;
+    @apply bg-white rounded-md border-2 border-gray-500 text-gray-500;
     
     .react-datepicker__time-container {
       @apply border-l-0;
@@ -798,7 +798,6 @@
     .react-datepicker__day--range-end {
       @apply rounded-r-full;
     }
-    
   }
 
 }

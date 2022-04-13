@@ -1,8 +1,7 @@
 import React from 'react'
-
 import '../../styles/base.css'
-import { Button, ButtonProps } from '../Button/Button'
-import { Icon, Props as IconProps } from '../Icon/Icon'
+import { Button, ButtonProps } from '../Button'
+import { Icon, Props as IconProps } from "../Icon/Icon"
 
 type SidebarMenuElement = {
   id: number
@@ -16,15 +15,18 @@ type SidebarMenuElement = {
 
 type SidebarMenuProps = {
   elements: SidebarMenuElement[]
+  collapse : boolean
 }
 
 export type SidebarProps = {
   mainButton?: ButtonProps
   menuElements: SidebarMenuProps['elements']
   footerText?: string
+  collapse: boolean
+  collapseAction: () => void
 }
 
-const SidebarMenu = ({ elements }: SidebarMenuProps) => {
+const SidebarMenu = ({ elements,collapse }: SidebarMenuProps) => {
   const sidebarElements = elements.map((element) => {
     if (element.key === 'separator') {
       return (
@@ -46,16 +48,16 @@ const SidebarMenu = ({ elements }: SidebarMenuProps) => {
         className={['sidebar-menu-element'].join(' ')}
         {...(route && 'algo')}
       >
-        <div className={['sidebar-menu-left', isActive && 'active '].join(' ')}>
-          {hasIcon ? <Icon icon={icon} /> : <Icon icon="CheckCircleIcon" />}
-          <span>{label}</span>
+        <div className={[!collapse ? 'sidebar-menu-left' : 'sidebar-menu-left-collapse', isActive ? 'active':''].join(' ')}>
+          <span>{hasIcon ? <Icon icon={icon} /> : <Icon icon='CheckCircleIcon' />}</span>
+          <span className={collapse ? 'hidden' : ""}>{label}</span>
         </div>
         <div className={['sidebar-menu-right'].join(' ')}>
           {hasItems &&
             (isActive ? (
-              <Icon icon="ChevronUpIcon" />
+              <Icon icon='ChevronUpIcon' />
             ) : (
-              <Icon icon="ChevronDownIcon" />
+              <Icon icon='ChevronDownIcon' />
             ))}
         </div>
 
@@ -74,7 +76,7 @@ const SidebarMenu = ({ elements }: SidebarMenuProps) => {
                   key={subitemId}
                   className={['sidebar-menu-subitem'].join(' ')}
                 >
-                  <span className={[isSubitemActive && 'active '].join(' ')}>
+                  <span className={[isSubitemActive ? 'active' : ''].join(' ')}>
                     {subitemLabel}
                   </span>
                 </li>
@@ -89,30 +91,66 @@ const SidebarMenu = ({ elements }: SidebarMenuProps) => {
   return <ul>{sidebarElements}</ul>
 }
 
+const CollapseButton = (props:any) =>{
+  const { collapseAction, collapse } = props
+  return(
+    <span
+          onKeyDown={() => {}}
+          role='button'
+          aria-hidden='true'
+          onClick={collapseAction}
+          className='mb-4 text-black ml-4'
+        >
+          {!collapse ? (
+            <div className='flex flex-row sidebar-menu-element ml-2'>
+              <span>
+                <Icon icon='ArrowCircleLeftIcon' />
+              </span>
+              <p className='ml-2'>Minimizar</p>
+            </div>
+          ) : (
+            <span>
+              <Icon icon='ArrowCircleRightIcon' />
+            </span>
+          )}
+        </span>
+  )
+}
+
 export const Sidebar = ({
   mainButton,
   menuElements,
   footerText,
+  collapse,
+  collapseAction,
 }: SidebarProps) => (
-  <div className="sidebar-container">
-    <div>
-      {mainButton && (
-        <>
-          <div className="sidebar-main-button">
-            <Button {...mainButton} />
-          </div>
-          <hr />
-        </>
-      )}
+  <div className='flex flex-row'>
+    <div className='sidebar-container'>
+      <div className='w-fit'>
+        {mainButton && (
+          <>
 
-      <SidebarMenu elements={menuElements} />
-    </div>
+            <div className={['sidebar-main-button',`${!collapse && 'ml-2'}`].join(' ')}>
+              <Button
+                {...mainButton}
+                label={!collapse ? mainButton.label : ''}
+              />
+            </div>
+            <hr />
+          </>
+        )}
 
-    <div>
-      <div className="sidebar-footer">{footerText}</div>
+        <SidebarMenu elements={menuElements} collapse={collapse} />
+
+        <CollapseButton collapse={collapse} collapseAction={collapseAction}/>
+        
+      </div>
+
+      {!collapse && <span className='sidebar-footer'>{footerText}</span>}
     </div>
   </div>
 )
+
 
 Sidebar.defaultProps = {
   mainButton: undefined,

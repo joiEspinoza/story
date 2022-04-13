@@ -14,24 +14,19 @@ export interface Props {
    * Indica si el campo es obligatorio
    */
   required: boolean
-  /**
-   * Indicador de error
-   */
-  hasError?: boolean
 }
 
-export const DateTimePicker = ({ label, required, hasError = false }: Props) => {
+export const DateTimePicker = ({ label, required }: Props) => {
   const [startDate, setStartDate] = useState<Date>()
   const [endDate, setEndDate] = useState<Date>()
 
   return (
     <div className="datepicker-container">
-      <span className='datepicker-label'>
+      <span className="datepicker-label">
         {label} {required && '*'}
       </span>
 
-      <div className={['dates-container', hasError ? 'border-red-500' : 'border-gray-500'].join(' ') }>
-
+      <div className="dates-container">
         <DatePicker
           id="startDate"
           selected={startDate}
@@ -64,8 +59,4 @@ export const DateTimePicker = ({ label, required, hasError = false }: Props) => 
       </div>
     </div>
   )
-}
-
-DateTimePicker.defaultProps = {
-  hasError: false
 }
