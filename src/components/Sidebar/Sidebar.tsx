@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../styles/base.css'
-import { Button, ButtonProps } from '../Button'
+import { Button, ButtonProps } from '../Button/Button'
 import { Icon, Props as IconProps } from "../Icon/Icon"
 
 type SidebarMenuElement = {
