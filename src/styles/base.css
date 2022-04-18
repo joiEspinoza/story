@@ -259,6 +259,73 @@
         padding-right: 0.75rem;
 }
 
+.chip-container{
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.chip-container .label{
+        position: absolute;
+        margin-left: 0.5rem;
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        --tw-text-opacity: 1;
+        color: rgb(31 41 55 / var(--tw-text-opacity));
+}
+
+.chip-container .input-container{
+        margin-top: 0.75rem;
+        display: inline-flex;
+        gap: 1rem;
+        border-radius: 0.375rem;
+        border-width: 2px;
+        --tw-border-opacity: 1;
+        border-color: rgb(148 163 184 / var(--tw-border-opacity));
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 0.875rem;
+        padding-bottom: 0.875rem;
+        --tw-text-opacity: 1;
+        color: rgb(71 85 105 / var(--tw-text-opacity));
+}
+
+.chip-container .input-container .chips{
+        display: inline-flex;
+        gap: 0.25rem;
+}
+
+.chip-container .input-container .chips .chip{
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        border-radius: 9999px;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        --tw-bg-opacity: 1;
+        background-color: rgb(191 219 254 / var(--tw-bg-opacity));
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        --tw-text-opacity: 1;
+        color: rgb(30 64 175 / var(--tw-text-opacity));
+}
+
+.chip-container .input-container .chips .chip .icon-remove{
+        --tw-text-opacity: 1;
+        color: rgb(96 165 250 / var(--tw-text-opacity));
+}
+
+.chip-container .input-container .select{
+        appearance: none;
+}
+
 .datatable-container{
         width: 100%;
 }

@@ -1,0 +1,28 @@
+.chip-container {
+  @apply grid grid-cols-1;
+
+  .label {
+    @apply absolute px-1 ml-2 text-sm text-gray-800 bg-white;
+  }
+
+  .input-container {
+    @apply inline-flex gap-4 rounded-md border-2 border-slate-400 text-slate-600 bg-white mt-3 px-4 py-3.5;
+
+    .chips {
+      @apply inline-flex gap-1;
+
+        .chip {
+          @apply inline-flex items-center gap-1 rounded-full px-2 py-1;
+          @apply bg-primary-200 text-primary-800 text-sm;
+
+          .icon-remove {
+            @apply text-primary-400 cursor-pointer
+          }
+        }
+    }
+
+    .select {
+      @apply appearance-none;
+    }
+  }
+}
