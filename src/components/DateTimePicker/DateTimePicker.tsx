@@ -14,19 +14,43 @@ export interface Props {
    * Indica si el campo es obligatorio
    */
   required: boolean
+  /**
+   * Indicador de error
+   */
+  hasError?: boolean
+  /**
+   * Indica si el componente solo considera selección de fecha solamente
+   */
+  onlyDate?: boolean
 }
 
-export const DateTimePicker = ({ label, required }: Props) => {
+export const DateTimePicker = ({ 
+  label, 
+  required, 
+  hasError = false,
+  onlyDate = false
+}: Props) => {
   const [startDate, setStartDate] = useState<Date>()
   const [endDate, setEndDate] = useState<Date>()
 
   return (
     <div className="datepicker-container">
-      <span className="datepicker-label">
+      <span className='datepicker-label'>
         {label} {required && '*'}
       </span>
 
-      <div className="dates-container">
+      <div className={['dates-container', hasError ? 'border-red-500' : 'border-gray-500'].join(' ') }>
+      {onlyDate ? 
+        <DatePicker
+          dateFormat="dd-MM-yyyy"
+          locale={es}
+          onChange={(date: Date) => setStartDate(date)}
+          selected={startDate}
+          showMonthDropdown
+          showYearDropdown
+        />
+      : 
+      <>
         <DatePicker
           id="startDate"
           selected={startDate}
@@ -56,7 +80,13 @@ export const DateTimePicker = ({ label, required }: Props) => {
           timeCaption="Hora"
           locale={es}
         />
+      </>}
       </div>
     </div>
   )
+}
+
+DateTimePicker.defaultProps = {
+  hasError: false,
+  onlyDate: false
 }

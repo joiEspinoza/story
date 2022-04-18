@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Header, HeaderProps } from './Header'
 
 export default {
-  title: 'Header',
+  title: 'V1/Header',
   component: Header
 } as ComponentMeta<typeof Header>
 
@@ -12,5 +12,6 @@ const Template: ComponentStory<typeof Header> = (args: HeaderProps) => <Header {
 
 export const Default = Template.bind({});
 Default.args = {
-  title: 'Price & Promotions'
+  title: 'Price & Promotions',
+  userAbbreviation: 'PS'
 };

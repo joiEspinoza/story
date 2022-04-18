@@ -37,11 +37,9 @@ WithStepper.args = {
     optionsStepper: [
       {
         id: 1,
-        label: '',
       },
       {
         id: 2,
-        label: '',
       },
     ],
     customTitleClass:""

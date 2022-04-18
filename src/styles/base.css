@@ -835,7 +835,8 @@
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'><path fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd' /></svg>");
         height: 0.875rem;
         width: 0.875rem;
-        appearance: none;
+        -webkit-appearance: none;
+                appearance: none;
         border-radius: 9999px;
         border-width: 0px;
       }
@@ -922,62 +923,20 @@
         align-items: center;
 }
 
-.stepper-container .stepper-element .stepper-element-position .stepper-element-id-container-active{
-        height: 1.75rem;
-        width: 1.75rem;
-        align-items: center;
-        border-radius: 9999px;
-        border-width: 1px;
-        --tw-border-opacity: 1;
-        border-color: rgb(0 0 0 / var(--tw-border-opacity));
-        --tw-bg-opacity: 1;
-        background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-        text-align: center;
-}
-
-.stepper-container .stepper-element .stepper-element-position .stepper-element-id-container-inactive{
-        height: 1.75rem;
-        width: 1.75rem;
-        align-items: center;
-        border-radius: 9999px;
-        border-width: 1px;
-        --tw-border-opacity: 1;
-        border-color: rgb(156 163 175 / var(--tw-border-opacity));
-        background-color: transparent;
-        text-align: center;
-}
-
-.stepper-container .stepper-element .stepper-element-position .stepper-element-id-container-text-active{
-        font-size: 1rem;
-        line-height: 1.5rem;
+.stepper-container .stepper-element .stepper-element-position .stepper-icon{
         --tw-text-opacity: 1;
-        color: rgb(255 255 255 / var(--tw-text-opacity));
+        color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
-.stepper-container .stepper-element .stepper-element-position .stepper-element-id-container-text-inactive{
-        font-size: 1rem;
-        line-height: 1.5rem;
-        --tw-text-opacity: 1;
-        color: rgb(156 163 175 / var(--tw-text-opacity));
-}
-
-.stepper-container .stepper-element .stepper-element-position .stepper-element-label-container{
-        position: absolute;
-        top: 0px;
-        margin-top: 2.25rem;
-        width: 8rem;
-        font-size: 0.75rem;
-        line-height: 1rem;
-        font-weight: 500;
-        --tw-text-opacity: 1;
-        color: rgb(107 114 128 / var(--tw-text-opacity));
+.stepper-container .stepper-element .stepper-element-position .stepper-icon-inactive{
+        cursor: pointer;
 }
 
 .stepper-container .stepper-line-element{
         flex: 1 1 auto;
-        border-top-width: 1px;
+        border-top-width: 2px;
         --tw-border-opacity: 1;
-        border-color: rgb(156 163 175 / var(--tw-border-opacity));
+        border-color: rgb(37 99 235 / var(--tw-border-opacity));
 }
 
 .toast-container{
@@ -2313,8 +2272,6 @@
         padding-bottom: 0.875rem;
         border-radius: 0.375rem;
         border-width: 2px;
-        --tw-border-opacity: 1;
-        border-color: rgb(107 114 128 / var(--tw-border-opacity));
         --tw-bg-opacity: 1;
         background-color: rgb(255 255 255 / var(--tw-bg-opacity));
         --tw-text-opacity: 1;
@@ -2373,7 +2330,7 @@
 }
 
 /*
-    ! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com
+    ! tailwindcss v3.0.21 | MIT License | https://tailwindcss.com
     */
 
 /*
@@ -2883,6 +2840,16 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex-row-reverse{
         flex-direction: row-reverse;
+}
+
+.border-red-500{
+        --tw-border-opacity: 1;
+        border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+
+.border-gray-500{
+        --tw-border-opacity: 1;
+        border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
 
 .px-4{

@@ -3,10 +3,12 @@ import React from 'react'
 // import '../../scss/base.scss'
 import '../../styles/base.css'
 
+import { Icon } from '../Icon/Icon'
+
 interface StepperElement {
   id: number
-  label?: string
   active?: boolean
+  onClick?: () => void
 }
 
 export interface StepperProps {
@@ -23,21 +25,13 @@ export interface StepperProps {
 
 export function Stepper({ elements }: StepperProps) {
   const stepperElements = elements.map((element, index) => {
-    const { id, label, active } = element
-
-    const stepperIdClass = `stepper-element-id-container-${active ? 'active' : 'inactive'}`
-    const stepperIdTextClass = `stepper-element-id-container-text-${active ? 'active' : 'inactive'}`
+    const { id, active } = element
 
     return (
       <div key={id} className="stepper-element">
         <div className="stepper-element-position">
-          <div className={stepperIdClass}>
-            <span className={stepperIdTextClass}>
-              {id}
-            </span>
-          </div>
-          <div className="stepper-element-label-container">
-            {label}
+          <div>
+            {active ? <span className='stepper-icon'><Icon icon='CheckCircleIcon' size='lg' /></span> : <span className='stepper-icon stepper-icon-inactive'><Icon icon='XCircleIcon' outline size='lg' /></span>}
           </div>
         </div>
         {index + 1 !== elements.length ? (

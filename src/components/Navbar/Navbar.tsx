@@ -84,7 +84,7 @@ export const Navbar = ({
 
 Navbar.defaultProps = {
   title: '',
-  brandItems: [],
-  navbarButtons: [],
+  brandItems: null,
+  navbarButtons: null,
   finder: true,
 }
