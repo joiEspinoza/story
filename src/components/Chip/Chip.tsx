@@ -53,7 +53,7 @@ export function Chip({ label, hasError, chips }: ChipProps) {
         </ul>
         <select
           className="select"
-          value={chipsAdded.join(" ")}
+          value={selectChip}
           onChange={(e) => handleOnChange(e)}
         >
           <option value="">Elige las necesarias...</option>
@@ -65,6 +65,7 @@ export function Chip({ label, hasError, chips }: ChipProps) {
         </select>
       </div>
       {hasError}
+      <input hidden data-chip={chipsAdded} value={chipsAdded.join(" ")} name="chip"/>
     </div>
   )
 }
