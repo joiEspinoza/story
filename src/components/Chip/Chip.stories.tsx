@@ -25,4 +25,5 @@ Default.args = {
     { label: 'Option 3', value: 'option-3' },
     { label: 'Option 4', value: 'option-4' },
   ],
+  onChange: (e:any) => console.log(e)
 }

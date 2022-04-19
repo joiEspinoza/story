@@ -12,26 +12,27 @@ export interface ChipProps {
   label: string
   hasError?: boolean
   chips: SelectOptions[]
-  name: string
+  onChange?: any
 }
 
-export function Chip({ label, hasError, chips, name }: ChipProps) {
+export function Chip({
+  label, 
+  hasError, 
+  chips,
+  onChange 
+}: ChipProps) {
   const [selectChip, setSelectChip] = useState('')
 
-  const [chipsAdded, setChipsAdded] = useState<Array<string>>([])
+  const [chipsAdded, setChipsAdded] = useState<Array<String>>([])
 
   useEffect(() => {
-    if (selectChip){
-      setChipsAdded([...chipsAdded, JSON.parse(selectChip).label])
-    } 
+    if (selectChip) setChipsAdded([...chipsAdded, JSON.parse(selectChip).label])
   }, [selectChip])
 
   useEffect(() => {
-    if(name){
-      localStorage.setItem( name, JSON.stringify(chipsAdded) );
-    }
+    onChange(chipsAdded)
   }, [chipsAdded])
-  
+
   const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectChip(e.target.value)
   }
@@ -74,15 +75,6 @@ export function Chip({ label, hasError, chips, name }: ChipProps) {
         </select>
       </div>
       {hasError}
-      {/*
-      <input
-        style={{display:"none"}}
-        value={chipsAdded} 
-        name={name}
-        ref={ref}
-        onChange={(e:any) => {data = e.target.value}}
-      />
-      */}
     </div>
   )
 }
