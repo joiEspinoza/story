@@ -14,9 +14,10 @@ export interface ChipProps {
   chips: SelectOptions[]
   name: string
   ref: any
+  data : object
 }
 
-export function Chip({ label, hasError, chips, name, ref }: ChipProps) {
+export function Chip({ label, hasError, chips, name, ref, data }: ChipProps) {
   const [selectChip, setSelectChip] = useState('')
 
   const [chipsAdded, setChipsAdded] = useState<Array<string>>([])
@@ -67,14 +68,14 @@ export function Chip({ label, hasError, chips, name, ref }: ChipProps) {
         </select>
       </div>
       {hasError}
-      <select
-        aria-label=""
-        multiple
+      <input
         hidden
         value={chipsAdded}
         name={name}
         ref={ref}
-      >nn</select>
+        /* eslint-disable */
+        onChange={(e:any)=>{data}}
+      />
     </div>
   )
 }
