@@ -12,12 +12,14 @@ export interface ChipProps {
   label: string
   hasError?: boolean
   chips: SelectOptions[]
+  name: string
+  onChange: ()=>{}
 }
 
-export function Chip({ label, hasError, chips }: ChipProps) {
+export function Chip({ label, hasError, chips, name, onChange }: ChipProps) {
   const [selectChip, setSelectChip] = useState('')
 
-  const [chipsAdded, setChipsAdded] = useState<Array<String>>([])
+  const [chipsAdded, setChipsAdded] = useState<Array<string>>([])
 
   useEffect(() => {
     if (selectChip) setChipsAdded([...chipsAdded, JSON.parse(selectChip).label])
@@ -65,7 +67,14 @@ export function Chip({ label, hasError, chips }: ChipProps) {
         </select>
       </div>
       {hasError}
-      <input hidden data-chip={chipsAdded} value={chipsAdded.join(" ")} name="chip"/>
+      <select
+        aria-label=""
+        multiple
+        hidden
+        value={chipsAdded}
+        name={name}
+        onChange={onChange}
+      >nn</select>
     </div>
   )
 }
