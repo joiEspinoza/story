@@ -69,12 +69,12 @@ export function Chip({ label, hasError, chips, name, ref, data }: ChipProps) {
       </div>
       {hasError}
       <input
-        hidden
-        value={chipsAdded}
+        style={{visibility:"hidden"}}
+        value={chipsAdded} 
         name={name}
         ref={ref}
         /* eslint-disable */
-        onChange={(e:any)=>{data}}
+        onChange={(e:any)=>{data = e.target.value}}
       />
     </div>
   )
