@@ -13,10 +13,10 @@ export interface ChipProps {
   hasError?: boolean
   chips: SelectOptions[]
   name: string
-  onChange: ()=>{}
+  ref: any
 }
 
-export function Chip({ label, hasError, chips, name, onChange }: ChipProps) {
+export function Chip({ label, hasError, chips, name, ref }: ChipProps) {
   const [selectChip, setSelectChip] = useState('')
 
   const [chipsAdded, setChipsAdded] = useState<Array<string>>([])
@@ -73,7 +73,7 @@ export function Chip({ label, hasError, chips, name, onChange }: ChipProps) {
         hidden
         value={chipsAdded}
         name={name}
-        onChange={onChange}
+        ref={ref}
       >nn</select>
     </div>
   )
