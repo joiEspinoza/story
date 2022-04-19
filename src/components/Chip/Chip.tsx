@@ -14,7 +14,7 @@ export interface ChipProps {
   chips: SelectOptions[]
   name: string
   ref: any
-  data : object
+  data : any
 }
 
 export function Chip({ label, hasError, chips, name, ref, data }: ChipProps) {
@@ -69,12 +69,12 @@ export function Chip({ label, hasError, chips, name, ref, data }: ChipProps) {
       </div>
       {hasError}
       <input
-        style={{visibility:"hidden"}}
+        style={{display:"none"}}
         value={chipsAdded} 
         name={name}
         ref={ref}
         /* eslint-disable */
-        onChange={(e:any)=>{data = e.target.value}}
+        onChange={(e:any) => {data = e.target.value}}
       />
     </div>
   )
