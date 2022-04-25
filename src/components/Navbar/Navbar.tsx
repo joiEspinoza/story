@@ -41,7 +41,7 @@ const renderFinder = () => (
 const renderNavbarButtons = (buttons: NavbarProps['navbarButtons'] = []) =>
   buttons.length &&
   buttons.map(({ key, icon, onClick }) => (
-    <Button key={key} visualType="link" icon={icon} onClick={onClick} />
+    <Button key={key} visualType="link" icon={icon} onClick={onClick} color="black" />
   ))
 
 const renderBrandSelector = (brands: NavbarProps['brandItems'] = []) => {
@@ -56,28 +56,24 @@ const renderBrandSelector = (brands: NavbarProps['brandItems'] = []) => {
   )
 }
 
-export const Navbar = ({
-  title,
-  brandItems,
-  navbarButtons,
-  finder,
-}: NavbarProps) => (
+export const Navbar = ({ title, brandItems, navbarButtons, finder }: NavbarProps) => (
   <div className="navbar-container">
-    <div className="navbar-left">
-      { title && <Title text={title} size="2xl" /> }
+    {title && (
+      <div className="navbar-left">
+        {title && <Title text={title} size="2xl" />}
+        {brandItems &&
+          (brandItems.length === 1 ? (
+            <Title text={brandItems[0].labelOption} size="base" />
+          ) : (
+            renderBrandSelector(brandItems)
+          ))}
+      </div>
+    )}
 
-      { brandItems && (
-        brandItems.length === 1 ? (
-          <Title text={brandItems[0].labelOption} size="base" />
-        ) : (
-          renderBrandSelector(brandItems)
-        )
-      )}      
-    </div>
+    <div>{finder && renderFinder()}</div>
 
     <div className="navbar-right">
       {navbarButtons && renderNavbarButtons(navbarButtons)}
-      {finder && renderFinder()}
     </div>
   </div>
 )

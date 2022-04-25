@@ -12,7 +12,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Color que tendrá el boton
    */
-  color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'black';
   /**
    * Texto del boton
    */
@@ -52,7 +52,7 @@ export function Button({
       className={['button', buttonClass, buttonColor, buttonIconOnly, flexDirection].join(' ')}
       {...props}
     >
-      { icon && <Icon icon={icon} /> }
+      { icon && <Icon icon={icon} outline={false} /> }
       { label }
     </button>
   )

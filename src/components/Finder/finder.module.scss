@@ -1,5 +1,5 @@
 .finder-container {
-  @apply bg-slate-100 font-semibold flex flex-row items-center justify-start h-12 p-4 space-x-2.5 text-base rounded-md;
+  @apply rounded-lg bg-white font-semibold flex flex-row items-center justify-start h-12 p-4 space-x-2.5 text-base border border-gray-300;
 
   svg {
     @apply text-blue-600;

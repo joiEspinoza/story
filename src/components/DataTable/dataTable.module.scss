@@ -2,7 +2,7 @@
   @apply w-full;
 
   .datatable-header {
-    @apply flex flex-row bg-slate-100 justify-between;
+    @apply flex flex-row justify-between border-b border-gray-100;
 
     &-column {
       @apply font-bold px-4 py-3 text-sm w-full;
@@ -10,11 +10,7 @@
   }
 
   .datatable-data {
-    @apply flex flex-row justify-between;
-
-    &:nth-child(even) {
-      @apply bg-slate-100;
-    }
+    @apply flex flex-row justify-between border-b border-gray-100;
 
     &-column {
       @apply font-normal px-4 py-3 text-sm w-full;
