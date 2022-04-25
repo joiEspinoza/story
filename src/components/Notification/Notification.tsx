@@ -13,7 +13,7 @@ export interface NotificationProps {
 export function Notification({ hasNotifications = false }: NotificationProps) {
   return (
     <div className={['notification-container', hasNotifications ? 'with-notification' : 'without-notification'].join(' ')}>
-      <span className='text-gray-400'><Icon icon="BellIcon" /></span>
+      <span className='text-gray-400'><Icon icon="BellIcon" outline={false} /></span>
 
       { hasNotifications && <span className="circle"/> }
     </div>
