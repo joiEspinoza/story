@@ -31,7 +31,7 @@
 }
 
 .modal-container__centered {
-  @apply px-3 border border-gray-200 rounded-md top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-1/2;
+  @apply px-3 border border-gray-200 rounded-md top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-1/2 z-50;
 
   .header {
     @apply flex flex-row items-center justify-between mx-8 mb-1.5 mt-6;
@@ -44,5 +44,5 @@
 }
 
 .modal-overlay {
-  @apply absolute h-screen w-screen inset-0 bg-primary-900 opacity-70 z-10;
+  @apply absolute h-screen w-screen inset-0 bg-primary-900 opacity-70 z-40;
 }
