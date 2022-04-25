@@ -3,7 +3,6 @@ import React from 'react'
 import { HeaderUser } from '../HeaderUser/HeaderUser'
 import { Logo } from '../Logo/Logo'
 import { Notification } from '../Notification/Notification'
-import { Title } from '../Title/Title'
 
 import '../../styles/base.css'
 
@@ -24,7 +23,7 @@ export const Header = ({ title, userAbbreviation = 'NN' }: HeaderProps) => (
       <div className="header-logo">
         <Logo />
       </div>
-      <Title height="semibold" size="lg" text={title} />
+      <p className="text-lg">{title}</p>
     </div>
     <div className="header-user">
       <Notification hasNotifications />

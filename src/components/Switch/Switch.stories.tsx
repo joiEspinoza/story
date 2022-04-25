@@ -9,6 +9,7 @@ export default {
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: {
     label: { control: 'text' },
+    checked: { control: 'boolean' },
   }
 } as ComponentMeta<typeof Switch>
 

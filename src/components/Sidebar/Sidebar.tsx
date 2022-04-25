@@ -20,7 +20,13 @@ type SidebarMenuProps = {
 
 export type SidebarProps = {
   mainButton?: ButtonProps
+  /*
+   * Elementos del menu
+   */
   menuElements: SidebarMenuProps['elements']
+  /*
+   * Texto en footer
+   */
   footerText?: string
   collapse: boolean
   collapseAction: () => void
@@ -46,12 +52,13 @@ const SidebarMenu = ({ elements,collapse }: SidebarMenuProps) => {
       <li
         key={id}
         className={['sidebar-menu-element'].join(' ')}
-        {...(route && 'algo')}
       >
-        <div className={[!collapse ? 'sidebar-menu-left' : 'sidebar-menu-left-collapse', isActive ? 'active':''].join(' ')}>
-          <span>{hasIcon ? <Icon icon={icon} /> : <Icon icon='CheckCircleIcon' />}</span>
-          <span className={collapse ? 'hidden' : ""}>{label}</span>
-        </div>
+        <a href={route || '#'}>
+          <div className={[!collapse ? 'sidebar-menu-left' : 'sidebar-menu-left-collapse', isActive ? 'active':''].join(' ')}>
+            <span>{hasIcon ? <Icon icon={icon} /> : <Icon icon='CheckCircleIcon' />}</span>
+            <span {...(collapse && { className: 'hidden' }) }>{label}</span>
+          </div>
+        </a>
         <div className={['sidebar-menu-right'].join(' ')}>
           {hasItems &&
             (isActive ? (
@@ -102,14 +109,14 @@ const CollapseButton = (props:any) =>{
           className='mb-4 text-black ml-4'
         >
           {!collapse ? (
-            <div className='flex flex-row sidebar-menu-element ml-2'>
+            <div className='flex flex-row sidebar-menu-element ml-2 text-gray-400'>
               <span>
                 <Icon icon='ArrowCircleLeftIcon' />
               </span>
               <p className='ml-2'>Minimizar</p>
             </div>
           ) : (
-            <span>
+            <span className='text-gray-400'>
               <Icon icon='ArrowCircleRightIcon' />
             </span>
           )}
@@ -124,8 +131,8 @@ export const Sidebar = ({
   collapse,
   collapseAction,
 }: SidebarProps) => (
-  <div className='flex flex-row'>
-    <div className='sidebar-container'>
+  <div className='flex flex-row text-gray-400'>
+    <div className={`sidebar-container ${collapse ? 'px-6':'px-8'}`}>
       <div className='w-fit'>
         {mainButton && (
           <>

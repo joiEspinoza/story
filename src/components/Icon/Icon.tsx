@@ -40,7 +40,7 @@ export const Icon = ({ icon, outline, spinner, size }: Props): JSX.Element => {
 }
 
 Icon.defaultProps = {
-  outline: false,
+  outline: true,
   spinner: false,
   size: 'md'
 }

@@ -62,6 +62,8 @@ export const DateTimePicker = ({
           dateFormat="dd-MM-yyyy HH:mm"
           timeCaption="Hora"
           locale={es}
+          showMonthDropdown
+          showYearDropdown
         />
 
         <span>-</span>
@@ -79,6 +81,8 @@ export const DateTimePicker = ({
           dateFormat="dd-MM-yyyy HH:mm"
           timeCaption="Hora"
           locale={es}
+          showMonthDropdown
+          showYearDropdown
         />
       </>}
       </div>

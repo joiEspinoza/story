@@ -81,4 +81,5 @@ export function Chip({
 
 Chip.defaultProps = {
   hasError: false,
+  onChange: ()=>{}
 }

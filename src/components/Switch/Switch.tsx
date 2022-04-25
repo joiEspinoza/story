@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import '../../styles/base.css'
 
@@ -26,6 +26,10 @@ export function Switch({ label, checked, ...props }: Props) {
       props.onChange()
     }
   }
+
+  useEffect(() => {
+    setIsChecked(checked)
+  }, [checked])
 
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
