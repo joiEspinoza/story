@@ -2,7 +2,7 @@ import React from 'react'
 
 import { HeaderUser } from '../HeaderUser/HeaderUser'
 import { Logo } from '../Logo/Logo'
-import { Notification } from '../Notification/Notification'
+/* import { Notification } from '../Notification/Notification' */
 
 import '../../styles/base.css'
 
@@ -26,7 +26,7 @@ export const Header = ({ title, userAbbreviation = 'NN' }: HeaderProps) => (
       <p className="text-lg">{title}</p>
     </div>
     <div className="header-user">
-      <Notification hasNotifications />
+      {/* <Notification hasNotifications /> */}
       <HeaderUser text={userAbbreviation.toUpperCase()} />
     </div>
   </div>

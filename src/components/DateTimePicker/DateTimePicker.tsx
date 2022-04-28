@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker'
 import { es } from 'date-fns/locale'
 
 import '../../styles/base.css'
+import { setHours, setMinutes } from 'date-fns'
 
 export interface Props {
   /**
@@ -42,6 +43,7 @@ export const DateTimePicker = ({
       <div className={['dates-container', hasError ? 'border-red-500' : 'border-gray-500'].join(' ') }>
       {onlyDate ? 
         <DatePicker
+          autoComplete='off'
           dateFormat="dd-MM-yyyy"
           locale={es}
           onChange={(date: Date) => setStartDate(date)}
@@ -52,15 +54,21 @@ export const DateTimePicker = ({
       : 
       <>
         <DatePicker
+          autoComplete='off'
           id="startDate"
           selected={startDate}
           onChange={(date: Date) => setStartDate(date)}
+          onSelect= {(sDate:Date) => {
+            const tDate = setMinutes(setHours(sDate, 0), 0)
+            setStartDate(tDate)
+          }}
           selectsStart
           startDate={startDate}
           endDate={endDate}
           showTimeSelect
           dateFormat="dd-MM-yyyy HH:mm"
           timeCaption="Hora"
+          timeIntervals={120}
           locale={es}
           showMonthDropdown
           showYearDropdown
@@ -69,10 +77,17 @@ export const DateTimePicker = ({
         <span>-</span>
 
         <DatePicker
+          autoComplete='off'
           id="endDate"
           className="to"
           selected={endDate}
-          onChange={(date: Date) => setEndDate(date)}
+          onChange={(date: Date) => {
+            setEndDate(date)
+          }}
+          onSelect={(eDate:Date) => {
+            const tDate = setMinutes(setHours(eDate, 23), 59)
+            setEndDate(tDate)
+          }}
           selectsEnd
           startDate={startDate}
           endDate={endDate}
@@ -80,6 +95,7 @@ export const DateTimePicker = ({
           showTimeSelect
           dateFormat="dd-MM-yyyy HH:mm"
           timeCaption="Hora"
+          timeIntervals={120}
           locale={es}
           showMonthDropdown
           showYearDropdown

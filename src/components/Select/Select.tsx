@@ -69,7 +69,7 @@ export function Select({
     <div className='select-container'>
       <span className="select-label">{label}{required && '*'}</span>
       <select className={[clase, hasError && 'has-error'].join(' ')} disabled={readonly} {...props}>
-        <option value='-1'>{placeholder}</option>
+        <option value='-1' disabled selected>{placeholder}</option>
         {opcionesSelect}
       </select>
     </div>
