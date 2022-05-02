@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 const defaultTheme = require('tailwindcss/defaultTheme')
 // eslint-disable-next-line import/no-unresolved
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
@@ -16,6 +16,7 @@ module.exports = {
         success: colors.green,
         warning: colors.yellow,
         danger: colors.red,
+        disabled: colors.gray
       }
     },
   },

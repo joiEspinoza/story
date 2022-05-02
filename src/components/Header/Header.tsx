@@ -15,9 +15,13 @@ export type HeaderProps = {
    * Iniciales usuario
    * */
   userAbbreviation?: string
+  /*
+  * Elemento jsx
+  */
+  customeElement: JSX.Element | JSX.Element[]
 }
 
-export const Header = ({ title, userAbbreviation = 'NN' }: HeaderProps) => (
+export const Header = ({ title, userAbbreviation = 'NN', customeElement }: HeaderProps) => (
   <div className="header-container">
     <div className="header-title">
       <div className="header-logo">
@@ -28,6 +32,7 @@ export const Header = ({ title, userAbbreviation = 'NN' }: HeaderProps) => (
     <div className="header-user">
       {/* <Notification hasNotifications /> */}
       <HeaderUser text={userAbbreviation.toUpperCase()} />
+      {customeElement}
     </div>
   </div>
 )

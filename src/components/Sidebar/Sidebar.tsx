@@ -28,6 +28,7 @@ export type SidebarProps = {
    * Texto en footer
    */
   footerText?: string
+  labelCollapse?: string
   collapse: boolean
   collapseAction: () => void
 }
@@ -99,7 +100,7 @@ const SidebarMenu = ({ elements,collapse }: SidebarMenuProps) => {
 }
 
 const CollapseButton = (props:any) =>{
-  const { collapseAction, collapse } = props
+  const { labelCollapse, collapseAction, collapse } = props
   return(
     <span
           onKeyDown={() => {}}
@@ -113,7 +114,7 @@ const CollapseButton = (props:any) =>{
               <span>
                 <Icon icon='ArrowCircleLeftIcon' />
               </span>
-              <p className='ml-2'>Minimizar</p>
+              <p className='ml-2'>{labelCollapse}</p>
             </div>
           ) : (
             <span className='text-gray-400'>
@@ -130,14 +131,18 @@ export const Sidebar = ({
   footerText,
   collapse,
   collapseAction,
+  labelCollapse,
 }: SidebarProps) => (
-  <div className='flex flex-row text-gray-400'>
-    <div className={`sidebar-container ${collapse ? 'px-6':'px-8'}`}>
-      <div className='w-fit'>
+  <div className="flex flex-row text-gray-400">
+    <div className={`sidebar-container ${collapse ? 'px-6' : 'px-8'}`}>
+      <div className="w-fit">
         {mainButton && (
           <>
-
-            <div className={['sidebar-main-button',`${!collapse && 'ml-2'}`].join(' ')}>
+            <div
+              className={['sidebar-main-button', `${!collapse && 'ml-2'}`].join(
+                ' '
+              )}
+            >
               <Button
                 {...mainButton}
                 label={!collapse ? mainButton.label : ''}
@@ -149,11 +154,14 @@ export const Sidebar = ({
 
         <SidebarMenu elements={menuElements} collapse={collapse} />
 
-        <CollapseButton collapse={collapse} collapseAction={collapseAction}/>
-        
+        <CollapseButton
+          labelCollapse={labelCollapse}
+          collapse={collapse}
+          collapseAction={collapseAction}
+        />
       </div>
 
-      {!collapse && <span className='sidebar-footer'>{footerText}</span>}
+      {!collapse && <span className="sidebar-footer">{footerText}</span>}
     </div>
   </div>
 )
@@ -162,4 +170,6 @@ export const Sidebar = ({
 Sidebar.defaultProps = {
   mainButton: undefined,
   footerText: '',
+  labelCollapse: ''
 }
+

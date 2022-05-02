@@ -13,5 +13,6 @@ const Template: ComponentStory<typeof Header> = (args: HeaderProps) => <Header {
 export const Default = Template.bind({});
 Default.args = {
   title: 'Price & Promotions',
-  userAbbreviation: 'PS'
+  userAbbreviation: 'PS',
+  customeElement: (<h1>Custome</h1>)
 };

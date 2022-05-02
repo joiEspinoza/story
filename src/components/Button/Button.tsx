@@ -12,7 +12,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Color que tendrá el boton
    */
-  color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'black';
+  color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'black' | 'disabled';
   /**
    * Texto del boton
    */

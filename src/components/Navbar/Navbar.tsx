@@ -82,5 +82,5 @@ Navbar.defaultProps = {
   title: '',
   brandItems: null,
   navbarButtons: null,
-  finder: true,
+  finder: false,
 }

@@ -132,7 +132,7 @@ function Paginator({
       </button>
       {paginationRange.map((pageNumber, i) => {
         if (pageNumber === DOTS) {
-          return <span>&#8230;</span>
+          return <span key={Math.max(i)}>&#8230;</span>
         }
 
         const classbutton = `paginator-button paginator-button-${

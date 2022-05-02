@@ -9,6 +9,7 @@ export default {
   component: Sidebar,
   argTypes: {
     footerText: { control: 'text' },
+    labelCollapse: { control: 'text' }
   },
 } as ComponentMeta<typeof Sidebar>
 
@@ -51,6 +52,7 @@ Primary.args = {
     { id: 7, label: 'Ayuda / FAQ', key: 'faq', icon: 'CogIcon' },
   ],
   footerText: '© 2022 Cencosud',
+  labelCollapse: 'Minimizar'
 }
 
 export const WithoutMainAction = Template.bind({})
@@ -76,6 +78,7 @@ WithoutMainAction.args = {
     { id: 7, label: 'Ayuda / FAQ', key: 'faq', icon: 'CogIcon' },
   ],
   footerText: '© 2022 Cencosud',
+  labelCollapse: 'Minimizar'
 }
 
 export const withSubMenus = Template.bind({})
@@ -110,4 +113,5 @@ withSubMenus.args = {
     { id: 7, label: 'Ayuda / FAQ', key: 'faq', icon: 'CogIcon' },
   ],
   footerText: '© 2022 Cencosud',
+  labelCollapse: 'Minimizar'
 }
